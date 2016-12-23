@@ -1,6 +1,50 @@
 <!DOCTYPE html>
 <html>
+  <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif]-->
+  <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
+  <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en-US"> <![endif]-->
+  <!--[if gt IE 8]> <html class="no-js" lang="en-US"> <!--<![endif]-->
   <head>
+    <title><%= Settings.store_name %> - <%= yield(:title) %></title>
+    <link rel="shortcut icon" type="image/png" href="<%=image_path('favicon.png')%>" />
+    <link rel="alternate" hreflang="vi" href="http://mixushop.com/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <meta name="description" content=''>
+    <meta property="og:site_name" content="<%= Settings.store_name %>" />
+    <meta property="og:locale" content="vi_vn" />
+    <meta property="al:web:url" content="http://mixushop.com" />
+
+    <meta name="og:type" content="website" />
+    <% if @product %>
+    <meta name="og:image" content="<%=image_path(@product.product_images[0].image_original_url)%>"/>
+    <% else %>
+    <meta name="og:image" content="<%=image_path('favicon.png')%>"/>
+    <% end %>
+
+    <meta name="og:title" content="Mixu shop" />
+    <meta name="og:url" content="<%= request.original_url %>"/>
+
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+      
+  <style type="text/css">img.wp-smiley,img.emoji{display:inline!important;border:none!important;box-shadow:none!important;height:1em!important;width:1em!important;margin:0 .07em!important;vertical-align:-0.1em!important;background:none!important;padding:0!important;}</style>
+
+<!-- <link rel="stylesheet" id="v_font_awesome_old-css" href="http://2code.info/demo/themes/ask-me/wp-content/themes/ask-me/css/font-awesome-old/css/font-awesome.min.css?ver=4.7" type="text/css" media="all"> -->
+
+    <%= csrf_meta_tags %>
+    <link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.7&appId=1377753405796618";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <title>QuestionsAnswers</title>
     <%= csrf_meta_tags %>
 
@@ -8,7 +52,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="home page-template page-template-template-home page-template-template-home-php page page-id-16">
     <%= yield %>
   </body>
 </html>

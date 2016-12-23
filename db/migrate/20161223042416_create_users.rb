@@ -16,13 +16,13 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :lat
       t.string :description
 
-      add_index :users, [:email, :type], unique: true
-      add_index :users, [:email, :name], unique: true
-      add_index :users, :type
-
       t.index :email, :unique => true
       t.index :uid, :unique => true
       t.timestamps
     end
+
+    add_index :users, [:email, :type], unique: true
+    add_index :users, [:email, :name], unique: true
+    add_index :users, :type
   end
 end
