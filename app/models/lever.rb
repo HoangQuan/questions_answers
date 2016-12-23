@@ -1,0 +1,2 @@
+class Lever < ApplicationRecord
+end
