@@ -12,6 +12,7 @@
  *
  *= require styles.css
  *= require base.css
+ *= require lists.css
  *= require bootstrap.min.css
  *= require prettyPhoto.css
  *= require font-awesome.min.css
