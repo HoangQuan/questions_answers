@@ -1,0 +1,213 @@
+
+<section class="container main-content page-right-sidebar">
+  <div class="row">
+    <div class="with-sidebar-container">
+      <div class="col-md-9">
+        <article class="question single-question question-type-poll post-266 type-question status-publish hentry question-category-wordpress question_tags-themes" id="post-266" role="article" itemtype="http://schema.org/Article">
+          <h2 itemprop="name"><%= @question.title %></h2>
+          <a class="question-report report_q" href="#">Report</a>
+          <div class="question-type-main"><i class="icon-signal"></i>Poll</div>
+          <div class="question-inner">
+            <div class="clearfix"></div>
+            <div class="question-desc" itemprop="mainContentOfPage">
+              <div class="explain-reported">
+                <h3>Please briefly explain why you feel this question should be reported .</h3>
+                <textarea name="explain-reported"></textarea>
+                <div class="clearfix"></div>
+                <div class="loader_3"></div>
+                <div class="color button small report">Report</div>
+                <div class="color button small dark_button cancel">Cancel</div>
+              </div>
+              <!-- End reported -->
+              <div class="question_poll_end">
+                <div class="poll_1">
+                  <div class="progressbar-warp">
+                    <span class="progressbar-title">Test poll 50.64%<span>( 709 voter )</span></span>
+                    <div class="progressbar">
+                      <div class="progressbar-percent " style="width: 50.64%; background-color: rgb(52, 152, 219);" attr-percent="50.64"></div>
+                    </div>
+                    <span class="progressbar-title">Good  37.93%<span>( 531 voter )</span></span>
+                    <div class="progressbar">
+                      <div class="progressbar-percent " style="width: 37.93%; background-color: rgb(52, 152, 219);" attr-percent="37.93"></div>
+                    </div>
+                    <span class="progressbar-title">Bad 11.43%<span>( 160 voter )</span></span>
+                    <div class="progressbar">
+                      <div class="progressbar-percent " style="width: 11.43%; background-color: rgb(52, 152, 219);" attr-percent="11.43"></div>
+                    </div>
+                  </div>
+                  <!-- End progressbar-warp -->
+                </div>
+                <div class="clear"></div>
+                <div class="poll_2">
+                  <div class="loader_3"></div>
+                  <div class="form-style form-style-3">
+                    <div class="form-inputs clearfix">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End question_poll_end -->
+              <div class="clearfix height_20"></div>
+              <h4><%= @question.content %></h4><br>
+                <% @question.answers.each do |answer| %>
+                  <div class="checkbox checkbox-primary">
+                    <input id="checkbox2" type="checkbox">
+                      <%= answer.label %>, <%= answer.content %>
+                  </div>
+                <% end %>
+              </p>
+              <div class="loader_2"></div>
+              <div class="no_vote_more"></div>
+            </div>
+            <div class="question-details">
+              <span class="question-answered"><i class="fa fa-ok"></i>in progress</span>
+              <span class="question-favorite"><i class="fa fa-star"></i>9</span>
+            </div>
+            <span class="question-category"><a href="http://2code.info/demo/themes/ask-me/question-category/wordpress/"><i class="fa fa-folder-o"></i>WordPress</a></span>
+            <span class="question-date" datetime="July 18, 2014"><i class="fa fa-calendar"></i>
+            2 years</span>
+            <span class="question-comment"><a href="http://2code.info/demo/themes/ask-me/questions/ask-any-question-and-you-be-sure-find-your-answer-2/#comments"><i class="fa fa-comments-o"></i>59 Answer</a></span>
+            <meta itemprop="interactionCount" content="UserAnswers: 59">
+            <span class="question-view"><i class="icon-eye-open"></i>25472 views</span>
+            <span class="badge-span" style="background-color: #000000">Beginner</span>            <span class="single-question-vote-result question_vote_result">39</span>
+            <ul class="single-question-vote">
+              <li><a href="#" class="single-question-vote-down ask_vote_down question_vote_down vote_not_user tooltip_s" original-title="Dislike"><i class="fa fa-thumbs-down"></i></a></li>
+              <li><a href="#" class="single-question-vote-up ask_vote_up question_vote_up vote_not_user tooltip_s" original-title="Like"><i class="fa fa-thumbs-up"></i></a></li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+        </article>
+        <div class="share-tags page-content">
+          <div class="question-tags"><i class="icon-tags"></i><a href="http://2code.info/demo/themes/ask-me/question-tag/themes/">themes</a></div>
+          <div class="share-inside-warp">
+            <ul>
+              <li>
+                <a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2F2code.info%2Fdemo%2Fthemes%2Fask-me%2Fquestions%2Fask-any-question-and-you-be-sure-find-your-answer-2%2F" target="_blank">
+                <span class="icon_i">
+                <span class="icon_square" icon_size="20" span_bg="#3b5997" span_hover="#666" style="height: 20px; width: 20px; font-size: 10px; line-height: 20px; border-style: solid; background-color: rgb(59, 89, 151);">
+                <i i_color="#FFF" class="social_icon-facebook" style="color: rgb(255, 255, 255);"></i>
+                </span>
+                </span>
+                </a>
+                <a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2F2code.info%2Fdemo%2Fthemes%2Fask-me%2Fquestions%2Fask-any-question-and-you-be-sure-find-your-answer-2%2F" target="_blank">Facebook</a>
+              </li>
+              <li>
+                <a href="http://twitter.com/home?status=http%3A%2F%2F2code.info%2Fdemo%2Fthemes%2Fask-me%2Fquestions%2Fask-any-question-and-you-be-sure-find-your-answer-2%2F" target="_blank">
+                <span class="icon_i">
+                <span class="icon_square" icon_size="20" span_bg="#00baf0" span_hover="#666" style="height: 20px; width: 20px; font-size: 10px; line-height: 20px; border-style: solid; background-color: rgb(0, 186, 240);">
+                <i i_color="#FFF" class="social_icon-twitter" style="color: rgb(255, 255, 255);"></i>
+                </span>
+                </span>
+                </a>
+                <a target="_blank" href="http://twitter.com/home?status=http%3A%2F%2F2code.info%2Fdemo%2Fthemes%2Fask-me%2Fquestions%2Fask-any-question-and-you-be-sure-find-your-answer-2%2F">Twitter</a>
+              </li>
+              <li>
+                <a href="http://plus.google.com/share?url=http%3A%2F%2F2code.info%2Fdemo%2Fthemes%2Fask-me%2Fquestions%2Fask-any-question-and-you-be-sure-find-your-answer-2%2F" target="_blank">
+                <span class="icon_i">
+                <span class="icon_square" icon_size="20" span_bg="#ca2c24" span_hover="#666" style="height: 20px; width: 20px; font-size: 10px; line-height: 20px; border-style: solid; background-color: rgb(202, 44, 36);">
+                <i i_color="#FFF" class="social_icon-gplus" style="color: rgb(255, 255, 255);"></i>
+                </span>
+                </span>
+                </a>
+                <a href="http://plus.google.com/share?url=http%3A%2F%2F2code.info%2Fdemo%2Fthemes%2Fask-me%2Fquestions%2Fask-any-question-and-you-be-sure-find-your-answer-2%2F" target="_blank">Google plus</a>
+              </li>
+              <li>
+                <a href="http://www.tumblr.com/share/link?url=http%3A%2F%2F2code.info%2Fdemo%2Fthemes%2Fask-me%2Fquestions%2Fask-any-question-and-you-be-sure-find-your-answer-2%2F&amp;name=Ask+any+question+and+you+be+sure+find+your+answer+%3F" target="_blank">
+                <span class="icon_i">
+                <span class="icon_square" icon_size="20" span_bg="#44546b" span_hover="#666" style="height: 20px; width: 20px; font-size: 10px; line-height: 20px; border-style: solid; background-color: rgb(68, 84, 107);">
+                <i i_color="#FFF" class="social_icon-tumblr" style="color: rgb(255, 255, 255);"></i>
+                </span>
+                </span>
+                </a>
+                <a href="http://www.tumblr.com/share/link?url=http%3A%2F%2F2code.info%2Fdemo%2Fthemes%2Fask-me%2Fquestions%2Fask-any-question-and-you-be-sure-find-your-answer-2%2F&amp;name=Ask+any+question+and+you+be+sure+find+your+answer+%3F" target="_blank">Tumblr</a>
+              </li>
+              <li>
+                <a target="_blank" href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2F2code.info%2Fdemo%2Fthemes%2Fask-me%2Fquestions%2Fask-any-question-and-you-be-sure-find-your-answer-2%2F&amp;media=">
+                <span class="icon_i">
+                <span class="icon_square" icon_size="20" span_bg="#c7151a" span_hover="#666" style="height: 20px; width: 20px; font-size: 10px; line-height: 20px; border-style: solid; background-color: rgb(199, 21, 26);">
+                <i i_color="#FFF" class="icon-pinterest" style="color: rgb(255, 255, 255);"></i>
+                </span>
+                </span>
+                </a>
+                <a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2F2code.info%2Fdemo%2Fthemes%2Fask-me%2Fquestions%2Fask-any-question-and-you-be-sure-find-your-answer-2%2F&amp;media=" target="_blank">Pinterest</a>
+              </li>
+              <li>
+                <a target="_blank" onclick="popup = window.open('mailto:?subject=Ask any question and you be sure find your answer ?&amp;body=http://2code.info/demo/themes/ask-me/questions/ask-any-question-and-you-be-sure-find-your-answer-2/', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#">
+                <span class="icon_i">
+                <span class="icon_square" icon_size="20" span_bg="#000" span_hover="#666" style="height: 20px; width: 20px; font-size: 10px; line-height: 20px; border-style: solid; background-color: rgb(0, 0, 0);">
+                <i i_color="#FFF" class="social_icon-email" style="color: rgb(255, 255, 255);"></i>
+                </span>
+                </span>
+                </a>
+                <a target="_blank" onclick="popup = window.open('mailto:?subject=Ask any question and you be sure find your answer ?&amp;body=http://2code.info/demo/themes/ask-me/questions/ask-any-question-and-you-be-sure-find-your-answer-2/', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#">Email</a>
+              </li>
+            </ul>
+            <span class="share-inside-f-arrow"></span>
+            <span class="share-inside-l-arrow"></span>
+          </div>
+          <!-- End share-inside-warp -->
+          <div class="share-inside"><i class="icon-share-alt"></i>Share</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- End share-tags -->
+        <div class="about-author clearfix">
+          <div class="author-image">
+            <a href="http://2code.info/demo/themes/ask-me/author/primegods/" original-title="primegods" class="tooltip-n">
+            <img alt="" src="http://2.gravatar.com/avatar/83fd0d89f0243bcb6b9de278321d86f0?s=65&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/83fd0d89f0243bcb6b9de278321d86f0?s=130&amp;d=mm&amp;r=g 2x" class="avatar avatar-65 photo" height="65" width="65">                   </a>
+          </div>
+          <div class="author-bio">
+            <h4>
+              About <a href="http://2code.info/demo/themes/ask-me/author/primegods/">primegods</a><span class="badge-span" style="background-color: #000000">Beginner</span>                      
+            </h4>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <!-- End about-author -->
+        <div id="related-posts">
+          <h2>Related questions</h2>
+          <ul class="related-posts">
+            <li class="related-item">
+              <h3><a href="http://2code.info/demo/themes/ask-me/questions/how-to-display-all-user-data/" title="How to display all user data?"><i class="icon-double-angle-right"></i>How to display all user data?</a></h3>
+            </li>
+            <li class="related-item">
+              <h3><a href="http://2code.info/demo/themes/ask-me/questions/what-is-the-best-place-to-learn-web-and-especially-wordpress/" title="What is the best place to learn web and especially WordPress ?"><i class="icon-double-angle-right"></i>What is the best place to learn web and especially WordPress ?</a></h3>
+            </li>
+            <li class="related-item">
+              <h3><a href="http://2code.info/demo/themes/ask-me/questions/what-is-the-meta-post/" title="What is the Meta Post ?"><i class="icon-double-angle-right"></i>What is the Meta Post ?</a></h3>
+            </li>
+            <li class="related-item">
+              <h3><a href="http://2code.info/demo/themes/ask-me/questions/this-is-my-first-question/" title="This Is My first Question"><i class="icon-double-angle-right"></i>This Is My first Question</a></h3>
+            </li>
+          </ul>
+        </div>
+        <!-- End related-posts -->
+
+        <%# render 'comments'%>
+
+        <div class="pagination comments-pagination">
+        </div>
+        <!-- End comments-pagination -->
+        <div id="respond" class="comment-respond page-content clearfix ">
+          <div class="boxedtitle page-title">
+            <h2>Leave an answer</h2>
+          </div>
+          <p class="no-login-comment">You must <a href="http://2code.info/demo/themes/ask-me/login/" class="login-comments">login</a> or <a href="http://2code.info/demo/themes/ask-me/login/" class="signup">register</a> to add a new answer .</p>
+        </div>
+        <div class="post-next-prev clearfix">
+          <p class="prev-post">
+            <a href="http://2code.info/demo/themes/ask-me/questions/como-va-todo/" rel="prev"><i class="icon-double-angle-left"></i>&nbsp;Previous question</a>               
+          </p>
+          <p class="next-post">
+          </p>
+        </div>
+        <!-- End post-next-prev -->
+      </div>
+      <!-- End main -->
+      <%= render 'partials/sidebar' %>
+      <!-- End sidebar -->
+      <div class="clearfix"></div>
+    </div>
+    <!-- End with-sidebar-container -->
+  </div>
+  <!-- End row -->
+</section>

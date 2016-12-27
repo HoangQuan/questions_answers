@@ -53,6 +53,20 @@
   </head>
 
   <body class="home page-template page-template-template-home page-template-template-home-php page page-id-16">
-    <%= yield %>
+    <div class="background-cover"></div>
+    <div class="panel-pop" id="signup" style="margin-left: -319.5px;">
+      <h2>Register Now<i class="icon-remove"></i></h2>
+      <div class="form-style form-style-3">
+      </div>
+    </div>
+
+    <div id="wrap" class="grid_1200 ">
+      <%= render 'header' %>
+      <%= render 'section_warp' %>
+      <%= yield %>
+
+      <%= render 'footer' %>
+    </div>
+    <!-- End wrap -->
   </body>
 </html>
