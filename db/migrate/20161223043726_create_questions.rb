@@ -13,6 +13,7 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
       t.integer :remain_points
       t.string :image_url
       t.string :image
+      t.string :difficulty_level # De, Trung binh, Kho
 
       t.timestamps
     end

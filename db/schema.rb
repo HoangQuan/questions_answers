@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20161223045708) do
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "lever_id"
     t.string   "image_url"
     t.string   "image"
     t.string   "slug"
@@ -57,8 +56,9 @@ ActiveRecord::Schema.define(version: 20161223045708) do
     t.integer  "remain_points"
     t.string   "image_url"
     t.string   "image"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "difficulty_level"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.index ["title", "category_id", "lever_id"], name: "index_questions_on_title_and_category_id_and_lever_id", using: :btree
     t.index ["title", "lever_id"], name: "index_questions_on_title_and_lever_id", using: :btree
     t.index ["title", "question_type"], name: "index_questions_on_title_and_question_type", using: :btree
@@ -92,6 +92,8 @@ ActiveRecord::Schema.define(version: 20161223045708) do
   create_table "users_answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "answer_id"
+    t.boolean  "correct"
+    t.string   "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

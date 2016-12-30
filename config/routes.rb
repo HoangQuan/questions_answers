@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get 'home/show' => 'home#show', as: :home_show
+  resources :questions
 end

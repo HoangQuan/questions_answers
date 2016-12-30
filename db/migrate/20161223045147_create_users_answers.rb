@@ -3,6 +3,8 @@ class CreateUsersAnswers < ActiveRecord::Migration[5.0]
     create_table :users_answers do |t|
       t.integer :user_id
       t.integer :answer_id
+      t.boolean :correct
+      t.string :answer
 
       t.timestamps
     end

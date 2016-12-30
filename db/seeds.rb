@@ -5,14 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Question.create(user_id: 1, category_id: 1, title: "Trong những cách sau cáth nào có thể làm nhiễm điện cho một vật?", content: "1. Trong những cách sau cách nào có t?", lever_id: 1, points: 10, remain_points: 10)
+
+(1..12).each do |i|
+  Lever.create(name: "Lớp #{i}", slug: 'Lop-12')
+end
+Lever.create(name: "Đại học", slug: 'dai-hoc')
+
+['Toán', 'Lý', 'Hóa', 'Sinh'].each do |c|
+  Category.create(name:  c, slug: c.parameterize, description: "Môn #{c}")
+end
+
+Question.create(user_id: 1, category_id: 1, title: "Trong những cách sau cáth nào có thể làm nhiễm điện cho một vật?", content: "1. Trong những cách sau cách nào có t?", lever_id: 11, points: 10, remain_points: 10, difficulty_level: 'easy')
 
 Question.last.answers.create(user_id: 2, label: "A", content: "Cọ chiếc vỏ bút lên tóc; ", correct: true)
 Question.last.answers.create(user_id: 2, label: "B", content: "Đặt một nhanh nhựa gần một vật đã nhiễm điện;", correct: false)
 Question.last.answers.create(user_id: 2, label: "C", content: "Đặt một vật gần nguồn điện;", correct: false)
 Question.last.answers.create(user_id: 2, label: "D", content: "Cho một vật tiếp xúc với viên pin.", correct: false)
 
-Question.create(user_id: 1, category_id: 1, title: "Trong các hiện tượng sau, hiện tượng nào không liên quan đến nhiễm điện?", content: "Trong các hiện tượng sau, hiện tượng nào không liên quan đến nhiễm điện?", lever_id: 1, points: 10, remain_points: 10)
+Question.create(user_id: 1, category_id: 1, title: "Trong các hiện tượng sau, hiện tượng nào không liên quan đến nhiễm điện?", content: "Trong các hiện tượng sau, hiện tượng nào không liên quan đến nhiễm điện?", lever_id: 11, points: 10, remain_points: 10, difficulty_level: 'normal')
 
 Question.last.answers.create(user_id: 2, label: "A", content: "Về mùa đông lược dính rất nhiều tóc khi chải đầu;", correct: false)
 Question.last.answers.create(user_id: 2, label: "B", content: "Chim thường xù lông về mùa rét;", correct: true)
