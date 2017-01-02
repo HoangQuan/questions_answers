@@ -62,7 +62,7 @@
 
     <div id="wrap" class="grid_1200 ">
       <%= render 'header' %>
-      <%= render 'section_warp' %>
+      <%= render 'section_warp' if request.path == root_path%>
       <%= yield %>
 
       <%= render 'footer' %>

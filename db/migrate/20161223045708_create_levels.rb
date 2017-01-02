@@ -1,6 +1,6 @@
-class CreateLevers < ActiveRecord::Migration[5.0]
+class CreateLevels < ActiveRecord::Migration[5.0]
   def change
-    create_table :levers do |t|
+    create_table :levels do |t|
       t.string :name
       t.string :slug
       t.string :image_url

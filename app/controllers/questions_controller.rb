@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Questions.new
+    @question = Question.new
   end
 
   def edit

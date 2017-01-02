@@ -7,7 +7,7 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
       t.string :question_type
       t.string :content
       t.string :hint
-      t.integer :lever_id
+      t.integer :level_id
       t.string :slug
       t.integer :points
       t.integer :remain_points
@@ -17,9 +17,9 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :questions, [:title, :category_id, :lever_id]
+    add_index :questions, [:title, :category_id, :level_id]
     add_index :questions, [:title, :user_id]
     add_index :questions, [:title, :question_type]
-    add_index :questions, [:title, :lever_id]
+    add_index :questions, [:title, :level_id]
   end
 end

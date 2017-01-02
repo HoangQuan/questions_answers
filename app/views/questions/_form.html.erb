@@ -1,0 +1,44 @@
+<%= form_for(@question) do |f| %>
+  <div class=""><%= render partial: "errors", locals: { object: @question } %></div>
+
+  <table class="table table-bordered">
+    <tr>
+      <th width="35%"><%= f.label t('models.products.category_id') %></th>
+      <td><%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true, selected: @question.category_id, class: 'input-text' %></td>
+    </tr>
+
+    <tr>
+      <th width="20%"><%= f.label t('models.products.title') %></th>
+      <td><%= f.text_field :title, class: 'input-text' %></td>
+    </tr>
+
+    <tr>
+      <th width="20%"><%= f.label t('models.products.description') %></th>
+      <td><%= f.text_area :hint, rows: 10, class: 'input-text'%></td>
+    </tr>
+
+    <tr>
+      <th width="20%"><%= f.label t('models.products.status') %></th>
+      <td><%= f.collection_select :level_id, Level.all, :id, :name, include_blank: true, selected: @question.level_id, class: 'input-text' %></td>
+    </tr>
+
+    <tr>
+      <th class="field"><%= f.label t('models.products.image') %></th>
+      <td>
+        <table id="link_to_add_attachment" class="">
+          <tbody id="input_attachments">
+            <% @question.answers && @question.answers.each_with_index do |answer, i| %>
+              <%= render "answer_fields", {answer: answer, f: f, id: i} %>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to_add_attachment t(:button_add_image, scope: [:views, :labels]), f, :answers, {append_id: "input_attachments", table_id: " link_to_add_attachment", class: "btn btn-warning btn-mini" } %>
+      </td>
+    </tr>
+  </table>
+  <div class="center">
+    <% button = @question.new_record? ? :button_create : :button_edit %>
+    <%= f.submit t(button, scope: [:views, :labels]), class:"btn btn-primary", id: "button_submit" %>
+    <%= link_to t(:button_cancel, scope: [:views, :labels]),questions_path, class:"btn btn-danger" %>
+  </div>
+<% end %>

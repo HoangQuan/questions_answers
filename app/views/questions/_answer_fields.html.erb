@@ -1,0 +1,24 @@
+<% ['A', 'B', 'C', 'D'].each  do |label|%>
+<tr>
+  <%= f.fields_for :answers, answer, child_index: id do |att| %>
+    <%= att.hidden_field :id %>
+    <td>
+      Phuong an: <%= att.text_field :label, value: label %>
+    </td>
+    <td>
+      Noi dung: <%= att.text_field :content %>
+    </td>
+    <td class="fileSelect">
+      <span><%= att.file_field :image %></span>
+      <% if answer && answer.image? %>
+        <span><%= link_to answer.image_url, answer.image_url  %></span>
+        <div><img src="<%= answer.image_url %>" class='img-list-product' /></div>
+      <% end %>
+    </td>
+    <td>
+      <%= att.hidden_field :_destroy %>
+      <%= link_to t(:delete, scope: [:views, :labels]), "javascript:void(0)", class: "remove_fields btn btn-danger btn-mini" %>
+    </td>
+  <% end %>
+</tr>
+<% end %>
