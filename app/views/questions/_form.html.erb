@@ -1,44 +1,67 @@
-<%= form_for(@question) do |f| %>
-  <div class=""><%= render partial: "errors", locals: { object: @question } %></div>
+<div class="form-posts">
+  <div class="form-style form-style-3 question-submit">
+    <div class="ask_question">
+      <div>
 
-  <table class="table table-bordered">
-    <tr>
-      <th width="35%"><%= f.label t('models.products.category_id') %></th>
-      <td><%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true, selected: @question.category_id, class: 'input-text' %></td>
-    </tr>
 
-    <tr>
-      <th width="20%"><%= f.label t('models.products.title') %></th>
-      <td><%= f.text_field :title, class: 'input-text' %></td>
-    </tr>
+        <%= form_for(@question) do |f| %>
+          <div class=""><%= render partial: "errors", locals: { object: @question } %></div>
 
-    <tr>
-      <th width="20%"><%= f.label t('models.products.description') %></th>
-      <td><%= f.text_area :hint, rows: 10, class: 'input-text'%></td>
-    </tr>
+          <div class="form-inputs clearfix">
+            <p>
+              <label class="required"><%= f.label :title %><span>*</span></label>
+              <%= f.text_field :title, class: 'the-title' %>
+              <span class="form-description">Please choose an appropriate title for the question to answer it even easier .</span>
+            </p>
 
-    <tr>
-      <th width="20%"><%= f.label t('models.products.status') %></th>
-      <td><%= f.collection_select :level_id, Level.all, :id, :name, include_blank: true, selected: @question.level_id, class: 'input-text' %></td>
-    </tr>
+            <p>
+              <label class="required"><%= f.label :category %><span>*</span></label>
+              <span class="styled-select">
+              <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true, selected: @question.category_id, class: 'postform' %>
+              </span>
+            </p>
 
-    <tr>
-      <th class="field"><%= f.label t('models.products.image') %></th>
-      <td>
-        <table id="link_to_add_attachment" class="">
-          <tbody id="input_attachments">
-            <% @question.answers && @question.answers.each_with_index do |answer, i| %>
-              <%= render "answer_fields", {answer: answer, f: f, id: i} %>
-            <% end %>
-          </tbody>
-        </table>
-        <%= link_to_add_attachment t(:button_add_image, scope: [:views, :labels]), f, :answers, {append_id: "input_attachments", table_id: " link_to_add_attachment", class: "btn btn-warning btn-mini" } %>
-      </td>
-    </tr>
-  </table>
-  <div class="center">
-    <% button = @question.new_record? ? :button_create : :button_edit %>
-    <%= f.submit t(button, scope: [:views, :labels]), class:"btn btn-primary", id: "button_submit" %>
-    <%= link_to t(:button_cancel, scope: [:views, :labels]),questions_path, class:"btn btn-danger" %>
+            <p>
+              <label class="required"><%= f.label :content %><span>*</span></label>
+              <%= f.text_area :content, class: 'the-title the-textarea' %>
+            </p>
+
+            <p>
+              <label class="required"><%= f.label :hint %><span>*</span></label>
+              <%= f.text_area :hint, class: 'the-title the-textarea' %>
+            </p>
+
+            <p>
+              <label class="required"><%= f.label :level %><span>*</span></label>
+              <span class="styled-select">
+              <%= f.collection_select :level_id, Level.all, :id, :name, selected: @question.level_id, class: 'postform' %>
+              </span>
+            </p>
+
+            <p class="question_poll_p" id="input_attachments">
+              <label for="question_poll-298">Poll</label>
+              <% unless @question.new_record? %>
+                <% @question.answers && @question.answers.each_with_index do |answer, i| %>
+                  <%= render "answer_fields", {answer: answer, f: f, id: i} %>
+                <% end %>
+              <% else %>
+                <span class="question_poll">This question is a poll ?</span>
+                <span class="poll-description">If you want to be doing a poll click here .</span>
+                <%= link_to_add_attachment t(:button_add_image, scope: [:views, :labels]), f, :answers, {append_id: "input_attachments", table_id: " link_to_add_attachment", class: "btn btn-warning btn-mini" } %>
+              <% end %>
+            </p>
+          </div>
+
+          <div class="center">
+            <% button = @question.new_record? ? :button_create : :button_edit %>
+            <p class="form-submit">
+              <%= f.submit t(button, scope: [:views, :labels]), class:"button color small submit add_qu publish-question", id: "button_submit" %>
+            </p>
+            <%= link_to t(:button_cancel, scope: [:views, :labels]), questions_path, class:"btn btn-danger button color small submit add_qu publish-question center" %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
   </div>
-<% end %>
+</div>

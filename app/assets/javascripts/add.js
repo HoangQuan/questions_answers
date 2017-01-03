@@ -1,8 +1,8 @@
-$( document ).ready(function() {
+$( document ).on('reload', function() {
   $("form").on("click", ".remove_fields", function(event) {
     $(this).prev("input[type=hidden]").val("1");
-    $(this).closest("tr").hide();
-    $(this).closest("fieldset").hide();
+    $(this).closest(".poll_options").hide(500);
+    $(this).closest("fieldset").hide(500);
     return event.preventDefault();
   });
 
@@ -13,6 +13,7 @@ $( document ).ready(function() {
     time = new Date().getTime();
     regexp = new RegExp($(this).data("id"), "g");
     $(this).before($(this).data("fields").replace(regexp, time));
+    $(this).hide();
     return event.preventDefault();
   });
   

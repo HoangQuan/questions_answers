@@ -965,45 +965,7 @@ $(document).ready(function($) {
     if ($(".question_tags,.post_tag").length) {
         $('.question_tags,.post_tag').tag();
     }
-    var question_poll = $(".question_poll:checked").length;
-    if (question_poll == 1) {
-        $(".poll_options").slideDown(500);
-    } else {
-        $(".poll_options").slideUp(500);
-    }
-    if ($(".question_poll").length) {
-        $(".question_poll").click(function() {
-            var question_poll_c = $(".question_poll:checked").length;
-            if (question_poll_c == 1) {
-                $(".poll_options").slideDown(500);
-            } else {
-                $(".poll_options").slideUp(500);
-            }
-        });
-    }
-    if ($(".question_polls_item").length) {
-        $(".question_polls_item").sortable({
-            placeholder: "ui-state-highlight"
-        });
-    }
-    if ($(".question_upload_item").length) {
-        $(".question_upload_item").sortable({
-            placeholder: "ui-state-highlight"
-        });
-    }
-    if ($(".add_poll_button_js").length) {
-        $(".add_poll_button_js").click(function() {
-            $(this).parent().parent().find('.question_poll_item').append('<li id="poll_li_' + nextli + '"><div class="poll-li"><p><input id="ask[' + nextli + '][title]" class="ask" name="ask[' + nextli + '][title]" value="" type="text"></p><input id="ask[' + nextli + '][value]" name="ask[' + nextli + '][value]" value="" type="hidden"><input id="ask[' + nextli + '][id]" name="ask[' + nextli + '][id]" value="' + nextli + '" type="hidden"><div class="del-poll-li"><i class="icon-remove"></i></div><div class="move-poll-li"><i class="icon-fullscreen"></i></div></div></li>');
-            $('#poll_li_' + nextli).hide().fadeIn();
-            nextli++;
-            $(".del-poll-li").click(function() {
-                $(this).parent().parent().addClass('removered').fadeOut(function() {
-                    $(this).remove();
-                });
-            });
-            return false;
-        });
-    }
+
     if ($(".del-poll-li").length) {
         $(".del-poll-li").click(function() {
             $(this).parent().parent().addClass('removered').fadeOut(function() {

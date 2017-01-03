@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_questions, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
   
   def index
     # @q = Product.search(params[:q])
@@ -10,12 +10,12 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @q = Product.search(params[:q])
-    CountView.increase_product_count(@product.id, current_user.try(:id))
-    @related_products = Product.includes(:product_images).related_products
-    @top_viewed_products = Product.includes(:product_images).top_viewed_products_except(@product)
-    @top_new_products = Product.includes(:product_images).top_new_products
-    @top_campaign_products = Product.includes(:product_images).top_campaign_products(3)
+    # @q = Product.search(params[:q])
+    # CountView.increase_product_count(@product.id, current_user.try(:id))
+    # @related_products = Product.includes(:product_images).related_products
+    # @top_viewed_products = Product.includes(:product_images).top_viewed_products_except(@product)
+    # @top_new_products = Product.includes(:product_images).top_new_products
+    # @top_campaign_products = Product.includes(:product_images).top_campaign_products(3)
   end
 
   def new
@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Product.new(question_params)
+    @question = Question.new(question_params)
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'question was successfully created.' }
@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
     @question.attributes = question_params
 
     respond_to do |format|
-      if @product.save
+      if @question.save
         format.html { redirect_to @question, notice: 'question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
       else
@@ -65,6 +65,6 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.require(:question).permit(:category_id, :title, :description, :campaign_id, :price, :original_price, product_images_attributes: [:id, :image, :_destroy])
+      params.require(:question).permit(:level_id, :category_id, :title, :content, :hint, answers_attributes: [:id, :question_id, :label, :content, :image, :_destroy])
     end
 end

@@ -4302,7 +4302,7 @@ input[type="checkbox"]:checked::before {
     margin-bottom: 5px;
 }
 
-input.the-title,input.question_tags,.the-username,.the-email,.video_id,.the-textarea,.taglist .input input,.category-wrap {
+textarea.the-title,input.the-title,input.question_tags,.the-username,.the-email,.video_id,.the-textarea,.taglist .input input,.category-wrap {
     float: left;
     width: 82%;
 }

@@ -1,0 +1,16 @@
+vi:
+  views:
+    labels:
+      button_create: "Tạo mới"
+      button_edit: "Cập nhật"
+      button_cancel: "Hủy bỏ"
+      button_add_image: "+ Thêm ảnh"
+      update_info: "Sửa thông tin"
+      product_new: "Mới"
+      product_hot: "Hot"
+      product_campain: "- "
+      edit: "Sửa"
+      show: "Chi tiết"
+      delete: "Xóa"
+      confirm: "Bạn chắc chứ?"
+      back: "Quay Lại"

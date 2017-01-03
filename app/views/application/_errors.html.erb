@@ -1,9 +1,9 @@
 <% if object.errors.any? %>
-  <div id="error_explanation" class='errors'>
+  <div id="ask_error" class='ask_error errors'>
     <h4><%= object.errors.count %> lỗi được phát hiện:</h4>
     <ul>
     <% object.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+      <li><span><p><%= message %></p></span></li>
     <% end %>
     </ul>
   </div>
