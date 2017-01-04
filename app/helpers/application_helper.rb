@@ -5,4 +5,16 @@ module ApplicationHelper
     fields = render(association.to_s.singularize + "_fields", { association.to_s.singularize.to_sym => new_object  ,f: f, id: id })
     link_to(name, "javascript:void(0)", class: "add_fields #{html_options[:class]}", style: "#{html_options[:style]}", append_id: html_options[:append_id] , id: html_options[:table_id] ,data: {id: id ,fields: fields.gsub("\n", "")})
   end
+
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
+
+  def mobile_device?
+    if session[:mobile_param]
+      session[:mobile_param] == "1"
+    else
+      request.user_agent =~ /Mobile|webOS/
+    end
+  end
 end
