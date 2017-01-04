@@ -1,6 +1,6 @@
-$( document ).on('reload', function() {
+$(document).on('turbolinks:load', function() {
   $("form").on("click", ".remove_fields", function(event) {
-    $(this).prev("input[type=hidden]").val("1");
+    $(this).closest(".poll_options").find('.destroy_element').val("1");
     $(this).closest(".poll_options").hide(500);
     $(this).closest("fieldset").hide(500);
     return event.preventDefault();
@@ -13,7 +13,7 @@ $( document ).on('reload', function() {
     time = new Date().getTime();
     regexp = new RegExp($(this).data("id"), "g");
     $(this).before($(this).data("fields").replace(regexp, time));
-    $(this).hide();
+    // $(this).hide();
     return event.preventDefault();
   });
   

@@ -91,11 +91,11 @@ ActiveRecord::Schema.define(version: 20161223045708) do
 
   create_table "users_answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.integer  "answer_id"
+    t.integer  "question_id"
     t.boolean  "correct"
     t.string   "answer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

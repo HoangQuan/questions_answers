@@ -1,8 +1,10 @@
-
 <section class="container main-content page-right-sidebar">
   <div class="row">
     <div class="with-sidebar-container">
       <div class="col-md-9">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
         <article class="question single-question question-type-poll post-266 type-question status-publish hentry question-category-wordpress question_tags-themes" id="post-266" role="article" itemtype="http://schema.org/Article">
           <h2 itemprop="name"><%= @question.title %></h2>
           <a class="question-report report_q" href="#">Report</a>
@@ -49,11 +51,16 @@
               <!-- End question_poll_end -->
               <div class="clearfix height_20"></div>
               <h4><%= @question.content %></h4><br>
-                <% @question.answers.each do |answer| %>
-                  <div class="checkbox checkbox-primary">
-                    <input id="checkbox2" type="checkbox">
-                      <%= answer.label %>, <%= answer.content %>
-                  </div>
+                <%= form_for @question.users_answers.build, remote: true, authenticity_token: true do |f| %>
+                  <% @question.answers.each do |answer| %>
+                    <div class="checkbox checkbox-primary">
+                        <%= f.hidden_field :question_id, value: @question.id%>
+                        <%= f.check_box :answer, { :multiple => true }, answer.id, nil %>
+                        <%= answer.label %>: <%= answer.content %>
+                    </div>
+
+                  <% end %>
+                  <%= f.submit 'Tra loi'%>
                 <% end %>
               </p>
               <div class="loader_2"></div>

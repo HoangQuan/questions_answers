@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   get 'home/show' => 'home#show', as: :home_show
   resources :questions
+  resources :users_answers
 end

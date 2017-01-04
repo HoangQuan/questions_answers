@@ -61,90 +61,12 @@
                     <div class="clearfix"></div>
                   </div>
                 </article>
-                <% end %>
-                <div class="clearfix"></div>
-                <div class="advertising"><a target="_blank" href="#"><img alt="" src="http://2code.info/demo/themes/ask-me/wp-content/uploads/2014/07/adv728x90.gif"></a></div>
-                <!-- End advertising -->
-                <div class="clearfix"></div>
-                <article class="question question-type-normal question_author_yes post-225 type-question status-publish hentry question-category-html question_tags-uhtv" id="post-225" role="article" itemtype="http://schema.org/Article">
-                  <h2 itemprop="name"><a itemprop="url" href="http://2code.info/demo/themes/ask-me/questions/como-va-todo/" title="como va todo?" rel="bookmark">como va todo?</a></h2>
-                  <a class="question-report report_q" href="#">Report</a>
-                  <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
-                  <div class="question-author">
-                    <a href="http://2code.info/demo/themes/ask-me/author/matias-lucero/" original-title="Matias Lucero" class="question-author-img tooltip-n">
-                    <span></span>
-                    <img alt="" src="http://2.gravatar.com/avatar/26940134639ce35b822dbe0ee7c31a51?s=65&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/26940134639ce35b822dbe0ee7c31a51?s=130&amp;d=mm&amp;r=g 2x" class="avatar avatar-65 photo" height="65" width="65">         </a>
-                  </div>
-                  <div class="question-inner">
-                    <div class="clearfix"></div>
-                    <div class="question-desc">
-                      queria saber como esta todo?
-                      ...         
-                      <div class="explain-reported">
-                        <h3>Please briefly explain why you feel this question should be reported .</h3>
-                        <textarea name="explain-reported"></textarea>
-                        <div class="clearfix"></div>
-                        <div class="loader_3"></div>
-                        <div class="color button small report">Report</div>
-                        <div class="color button small dark_button cancel">Cancel</div>
-                      </div>
-                      <!-- End reported -->
-                      <div class="no_vote_more"></div>
-                    </div>
-                    <div class="question-details">
-                      <span class="question-answered"><i class="fa fa-ok"></i>in progress</span>
-                      <span class="question-favorite"><i class="fa fa-star"></i>4</span>
-                    </div>
-                    <span class="question-category"><a href="http://2code.info/demo/themes/ask-me/question-category/html/"><i class="fa fa-folder-o"></i>HTML</a></span>
-                    <span class="question-date" datetime="July 6, 2014"><i class="fa fa-calendar"></i>2 years</span>
-                    <span class="question-comment"><a href="http://2code.info/demo/themes/ask-me/questions/como-va-todo/#comments"><i class="fa fa-comments-o"></i>12 Answer</a></span>
-                    <meta itemprop="interactionCount" content="UserAnswers: 12">
-                    <span class="question-view"><i class="fa fa-eye"></i>4352 views</span>
-                    <span class="badge-span" style="background-color: #000000">Beginner</span>      
-                    <div class="clearfix"></div>
-                  </div>
-                </article>
 
-                <% Question.all.each do |question| %>
-                <article class="question question-type-normal question_author_yes post-132 type-question status-publish hentry question-category-design question_tags-answer question_tags-no question_tags-question" id="post-132" role="article" itemtype="http://schema.org/Article">
-                  <h2 itemprop="name"><a itemprop="url" href="http://2code.info/demo/themes/ask-me/questions/this-is-a-question-without-answer/" title="This is a question without answer !" rel="bookmark"><%= question.title %></a></h2>
-                  <a class="question-report report_q" href="#">Report</a>
-                  <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
-                  <div class="question-author">
-                    <a href="http://2code.info/demo/themes/ask-me/author/ask-me/" original-title="Ahmed Hassan" class="question-author-img tooltip-n">
-                    <span></span>
-                    <img alt="Ahmed Hassan" src="http://2code.info/demo/themes/ask-me/wp-content/uploads/2014/06/chefs-1-65x65.png">          </a>
-                  </div>
-                  <div class="question-inner">
-                    <div class="clearfix"></div>
-                    <div class="question-desc">
-                      <%question.answers.each do |answer| %>
-                        <label><%= answer.label%>: <%= answer.content %></label><br />
-                      <% end %>
-                      <div class="explain-reported">
-                        <h3>Please briefly explain why you feel this question should be reported .</h3>
-                        <textarea name="explain-reported"></textarea>
-                        <div class="clearfix"></div>
-                        <div class="loader_3"></div>
-                        <div class="color button small report">Report</div>
-                        <div class="color button small dark_button cancel">Cancel</div>
-                      </div>
-                      <!-- End reported -->
-                      <div class="no_vote_more"></div>
-                    </div>
-                    <div class="question-details">
-                      <span class="question-answered"><i class="fa fa-ok"></i>in progress</span>
-                      <span class="question-favorite"><i class="fa fa-star"></i>2</span>
-                    </div>
-                    <span class="question-category"><a href="http://2code.info/demo/themes/ask-me/question-category/design/"><i class="fa fa-folder-o"></i>Design</a></span>
-                    <span class="question-date" datetime="June 4, 2014"><i class="fa fa-calendar"></i>3 years</span>
-                    <span class="question-comment"><a href="http://2code.info/demo/themes/ask-me/questions/this-is-a-question-without-answer/#comments"><i class="fa fa-comments-o"></i>1 Answer</a></span>
-                    <meta itemprop="interactionCount" content="UserAnswers: 1">
-                    <span class="question-view"><i class="fa fa-eye"></i>3711 views</span>
-                    <span class="badge-span" style="background-color: #dd9933">Pundit</span>      
-                    <div class="clearfix"></div>
-                  </div>
-                </article>
+                <% if [true, false].sample %>
+                  <div class="clearfix"></div>
+                  <div class="advertising"><a target="_blank" href="#"><img alt="" src="http://2code.info/demo/themes/ask-me/wp-content/uploads/2014/07/adv728x90.gif"></a></div>
+                  <!-- End advertising -->
+                <% end %>
                 <% end %>
               </div>
             </div>
@@ -168,38 +90,6 @@
       <!-- End with-sidebar-container -->
     </div> 
     <!-- End row -->
-
-    <form class="login-form ask_login" action="http://2code.info/demo/themes/ask-me/" method="post">
-            <div class="ask_error"></div>
-            
-            <div class="form-inputs clearfix">
-              <p class="login-text">
-                <input class="required-item" type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}" name="log">
-                <i class="icon-user"></i>
-              </p>
-              <p class="login-password">
-                <input class="required-item" type="password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}" name="pwd">
-                <i class="icon-lock"></i>
-                <a href="#">Forget</a>
-              </p>
-            </div>
-            
-            <p class="form-submit login-submit">
-              <span class="loader_2"></span>
-              <input type="submit" value="Log in" class="button color small login-submit submit sidebar_submit">
-              
-            </p>
-            
-            <div class="rememberme">
-              <label><input type="checkbox" input="" name="rememberme" checked="checked"> Remember Me</label>
-            </div>
-            
-            <input type="hidden" name="redirect_to" value="http://2code.info/demo/themes/ask-me/ask-question/">
-            <input type="hidden" name="login_nonce" value="a01d30c8d3">
-            <input type="hidden" name="ajax_url" value="http://2code.info/demo/themes/ask-me/wp-admin/admin-ajax.php">
-            <input type="hidden" name="form_type" value="ask-login">
-            <div class="errorlogin"></div>
-          </form>
   </section>
   <!-- End container -->
 <!-- End wrap -->

@@ -17,7 +17,7 @@
             <p>
               <label class="required"><%= f.label :category %><span>*</span></label>
               <span class="styled-select">
-              <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true, selected: @question.category_id, class: 'postform' %>
+              <%= f.collection_select :category_id, Category.all, :id, :name, selected: @question.category_id, class: 'postform' %>
               </span>
             </p>
 
@@ -44,6 +44,7 @@
                 <% @question.answers && @question.answers.each_with_index do |answer, i| %>
                   <%= render "answer_fields", {answer: answer, f: f, id: i} %>
                 <% end %>
+                <%= link_to_add_attachment t(:button_add_image, scope: [:views, :labels]), f, :answers, {append_id: "input_attachments", table_id: " link_to_add_attachment", class: "btn btn-warning btn-mini" } %>
               <% else %>
                 <span class="question_poll">This question is a poll ?</span>
                 <span class="poll-description">If you want to be doing a poll click here .</span>

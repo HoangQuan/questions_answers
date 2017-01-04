@@ -1,6 +1,4 @@
-class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
-  
+class UsersAnswersController < ApplicationController  
   def index
     # @q = Product.search(params[:q])
     # @products = @q.result.includes(:product_images).order(updated_at: :desc).page(params[:page]).per(12)
@@ -20,19 +18,21 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @question = UsersAnswer.new
   end
 
   def edit
   end
 
   def create
-    @question = Question.new(question_params)
-    @question.user_id = 1
+    @user_answer = UsersAnswer.new(user_id: 1, question_id: users_answer_params[:question_id], answer: users_answer_params[:answer].join(', '))
+    @user_answer.correct = check_correct_answer(@user_answer)
     respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: 'question was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
+      if @user_answer.save
+        format.html {
+          redirect_to @user_answer.question, notice: "Ban da tra loi #{@user_answer.correct ? 'Dung' : 'Sai'}" 
+        }
+        format.json { render :show, status: :created, location: @user_answer }
       else
         format.html { render :new }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -62,11 +62,12 @@ class QuestionsController < ApplicationController
   end
 
   private
-    def set_question
-      @question = Question.find(params[:id])
-    end
+  def users_answer_params
+  	params[:users_answer]
+  end
 
-    def question_params
-      params.require(:question).permit(:level_id, :category_id, :title, :content, :hint, answers_attributes: [:id, :correct, :question_id, :label, :content, :image, :_destroy])
-    end
+  def check_correct_answer(user_answer)
+  	correct_answers = Question.correct_answers(user_answer.question_id).pluck(:id).join(', ')
+    correct_answers.strip == user_answer.answer
+  end
 end

@@ -2057,14 +2057,7 @@ $(document).ready(function($) {
             cursorborderradius: 0,
         });
     }
-    if ($(".widget_menu_$").length) {
-        $(".widget_menu_$").onePageNav({
-            currentClass: "current_page_item",
-            changeHash: false,
-            scrollSpeed: 750,
-            scrollOffset: parseFloat($("#header").innerHeight()) + 60
-        });
-    }
+
     var lightboxArgs = {
         animation_speed: "fast",
         overlay_gallery: true,
@@ -2080,8 +2073,8 @@ $(document).ready(function($) {
         default_width: 940,
         default_height: 529
     };
-    $("a[href$=jpg], a[href$=JPG], a[href$=jpeg], a[href$=JPEG], a[href$=png], a[href$=gif], a[href$=bmp]:has(img)").prettyPhoto(lightboxArgs);
-    $("a[class^='prettyPhoto'], a[rel^='prettyPhoto']").prettyPhoto(lightboxArgs);
+    // $("a[href$=jpg], a[href$=JPG], a[href$=jpeg], a[href$=JPEG], a[href$=png], a[href$=gif], a[href$=bmp]:has(img)").prettyPhoto(lightboxArgs);
+    // $("a[class^='prettyPhoto'], a[rel^='prettyPhoto']").prettyPhoto(lightboxArgs);
     $(window).load(function() {
         $(".loader").fadeOut(500);
         if ($(".carousel-all").length) {
@@ -2145,75 +2138,58 @@ $(document).ready(function($) {
             });
         }
     });
-    if (!mobile_device) {
-        $(".with-sidebar-container").each(function() {
-            var main_container = $(this);
-            var sticky_sidebar = main_container.parent().find(".sticky-sidebar");
-            if (sticky_sidebar.length) {
-                sticky_sidebar.theiaStickySidebar({
-                    "containerSelector": main_container,
-                    "additionalMarginTop": ($("#wrap").hasClass("fixed-enabled") ? 120 : ($("body").hasClass("admin-bar") ? 50 : 40))
-                });
-            }
-        });
-    }
+    // if (!mobile_device) {
+    //     $(".with-sidebar-container").each(function() {
+    //         var main_container = $(this);
+    //         var sticky_sidebar = main_container.parent().find(".sticky-sidebar");
+    //         if (sticky_sidebar.length) {
+    //             sticky_sidebar.theiaStickySidebar({
+    //                 "containerSelector": main_container,
+    //                 "additionalMarginTop": ($("#wrap").hasClass("fixed-enabled") ? 120 : ($("body").hasClass("admin-bar") ? 50 : 40))
+    //             });
+    //         }
+    //     });
+    // }
     $(window).trigger('resize');
     $(window).trigger('scroll');
-    $(".widget_menu.widget_menu_$").each(function() {
-        var widget_menu_$ = $(this);
-        var sidebar_w = widget_menu_$.parent().width();
-        widget_menu_$.css({
-            "width": sidebar_w
-        });
-    });
-    $(window).bind("resize", function() {
-        if ($(this).width() > 800) {
-            $(".widget_menu.widget_menu_$").each(function() {
-                var widget_menu_$ = $(this);
-                var sidebar_w = widget_menu_$.parent().width();
-                widget_menu_$.css({
-                    "width": sidebar_w
-                });
-            });
-        }
-    });
+
     $.fn.scrollBottom = function() {
         return $(document).height() - this.scrollTop() - this.height();
     };
-    var $widget_menu = $(".widget_menu_$");
-    var $window = $(window);
-    var header = parseFloat($("#header-top").outerHeight() + $("#header").outerHeight() + $(".breadcrumbs").outerHeight() + 70);
-    var footer = parseFloat($("#footer").outerHeight() + $("#footer-bottom").outerHeight() + 80);
-    $window.bind("scroll resize", function() {
-        var gap = $window.height() - $widget_menu.height() + 40;
-        var visibleHead = header - $window.scrollTop();
-        var visibleFoot = footer - $window.scrollBottom();
-        var scrollTop = $window.scrollTop();
-        if (scrollTop < header) {
-            $widget_menu.css({
-                top: visibleHead + "px",
-                bottom: "auto"
-            });
-        } else if (visibleFoot > $window.height() - $widget_menu.height()) {
-            $widget_menu.css({
-                top: "auto",
-                bottom: visibleFoot + "px"
-            });
-        } else {
-            if ($("#wrap").hasClass("fixed-enabled")) {
-                $widget_menu.css({
-                    top: parseFloat($("#header.fixed-nav").outerHeight() + 40),
-                    bottom: "auto"
-                });
-            } else {
-                $widget_menu.css({
-                    top: "40px",
-                    bottom: "auto"
-                });
-            }
-        }
-    }).scroll();
-});
+//     var $widget_menu = $(".widget_menu_$");
+//     var $window = $(window);
+//     var header = parseFloat($("#header-top").outerHeight() + $("#header").outerHeight() + $(".breadcrumbs").outerHeight() + 70);
+//     var footer = parseFloat($("#footer").outerHeight() + $("#footer-bottom").outerHeight() + 80);
+//     $window.bind("scroll resize", function() {
+//         var gap = $window.height() - $widget_menu.height() + 40;
+//         var visibleHead = header - $window.scrollTop();
+//         var visibleFoot = footer - $window.scrollBottom();
+//         var scrollTop = $window.scrollTop();
+//         if (scrollTop < header) {
+//             $widget_menu.css({
+//                 top: visibleHead + "px",
+//                 bottom: "auto"
+//             });
+//         } else if (visibleFoot > $window.height() - $widget_menu.height()) {
+//             $widget_menu.css({
+//                 top: "auto",
+//                 bottom: visibleFoot + "px"
+//             });
+//         } else {
+//             if ($("#wrap").hasClass("fixed-enabled")) {
+//                 $widget_menu.css({
+//                     top: parseFloat($("#header.fixed-nav").outerHeight() + 40),
+//                     bottom: "auto"
+//                 });
+//             } else {
+//                 $widget_menu.css({
+//                     top: "40px",
+//                     bottom: "auto"
+//                 });
+//             }
+//         }
+//     }).scroll();
+    });
 
 // function ask_get_captcha(captcha_file, captcha_id) {
 //     var img = $("#" + captcha_id).attr("src", captcha_file + '?' + Math.random());

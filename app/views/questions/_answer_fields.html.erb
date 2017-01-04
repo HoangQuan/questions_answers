@@ -1,18 +1,17 @@
 <% if f.object.new_record? %>
   <% ['A', 'B', 'C', 'D'].each_with_index  do |label, i|%>
-    <div class="apoll_options" style="display: block;">
+    <div class="poll_options" style="display: inline-block;">
     <%= f.fields_for :answers, answer, child_index: id + i do |att| %>
       <%= att.hidden_field :user_id, value: 1 %>
       <%= att.hidden_field :label, value: label %>
-      <%= att.hidden_field :_destroy %>
-        <!-- <p class="form-submit add_poll">
-          <button type="button" class="button color small submit add_poll_button add_poll_button_js"><i class="icon-plus"></i>Add Field</button>
-        </p> -->
+      <%= att.hidden_field :_destroy, class: 'destroy_element' %>
         <ul class="question_poll_item question_polls_item ui-sortable">
-          <li id="poll_li_5" style="display: inline;">
+          <li id="poll_li_5" style="display: inline-block;">
+            <p><%= att.text_field :label, value: label, placeholder: "Nhan cua phuong an: A, B, C...", size: '100'%></p>
             <div class="poll-li">
-              <p><%= att.text_field :content, placeholder: "Noi dung Phuong an " %></p>
-              <div class="del-poll-li remove_fields"><%= link_to "<i class='fa fa-remove'>".html_safe, "javascript:void(0)", class: "remove_fields btn btn-danger btn-mini" %></i></div>
+              <p><%= att.text_field :content, placeholder: "Noi dung Phuong an #{label}" %></p>
+              <div class="del-poll-li remove_fields"><%= link_to "<i class='fa fa-remove'>".html_safe, "javascript:void(0)", class: "btn btn-danger btn-mini" %></i></div>
+              <span><%= att.check_box :correct, checked: answer.correct, class: 'question_poll' %> Dap an dung</span>
               <span><%= att.file_field :image %></span>
               <% if answer && answer.image? %>
                 <span><%= link_to answer.image_url, answer.image_url  %></span>
@@ -26,19 +25,18 @@
     </div>
   <% end %>
 <% else %>
-  <div class="poll_options" style="display: block;">
+  <div class="poll_options" style="display: inline-block;">
   <%= f.fields_for :answers, answer, child_index: id do |att| %>
     <%= att.hidden_field :user_id, value: 1 %>
-    <%= att.text_field :label, value: answer.label || 'A' %>
-    <%= att.hidden_field :_destroy %>
-      <!-- <p class="form-submit add_poll">
-        <button type="button" class="button color small submit add_poll_button add_poll_button_js"><i class="icon-plus"></i>Add Field</button>
-      </p> -->
+    <%= att.hidden_field :label, value: answer.label || 'A' %>
+    <%= att.hidden_field :_destroy, class: 'destroy_element' %>
       <ul class="question_poll_item question_polls_item ui-sortable">
-        <li id="poll_li_5" style="display: inline;">
+        <li id="poll_li_5" style="display: inline-block;">
+          <p><%= att.text_field :label, placeholder: "Nhan cua phuong an: A, B, C...", size: '100' %></p>
           <div class="poll-li">
-            <p><%= att.text_field :content, placeholder: "Noi dung Phuong an " %></p>
-            <div class="del-poll-li remove_fields"><%= link_to "<i class='fa fa-remove'>".html_safe, "javascript:void(0)", class: "remove_fields btn btn-danger btn-mini" %></i></div>
+            <p><%= att.text_field :content, placeholder: "Noi dung Phuong an #{answer.label}" %></p>
+            <div class="del-poll-li remove_fields"><%= link_to "<i class='fa fa-remove'>".html_safe, "javascript:void(0)", class: "btn btn-danger btn-mini" %></i></div>
+            <span><%= att.check_box :correct, checked: answer.correct, class: 'question_poll' %> Dap an dung</span>
             <span><%= att.file_field :image %></span>
             <% if answer && answer.image? %>
               <span><%= link_to answer.image_url, answer.image_url  %></span>
