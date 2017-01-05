@@ -25,17 +25,30 @@ class UsersAnswersController < ApplicationController
   end
 
   def create
+    @question = Question.find(users_answer_params[:question_id])
     @user_answer = UsersAnswer.new(user_id: 1, question_id: users_answer_params[:question_id], answer: users_answer_params[:answer].join(', '))
-    @user_answer.correct = check_correct_answer(@user_answer)
+    @correct_answers = Question.correct_answers(@user_answer.question_id)
+
+    if @correct_answers.present?
+      @user_answer.correct = check_correct_answer(@correct_answers, @user_answer)
+    end
+
+    @user_answers = Answer.where(id: users_answer_params[:answer])
+    # @user_result = {
+    #   answer_labels: 
+    # }
+
     respond_to do |format|
       if @user_answer.save
         format.html {
           redirect_to @user_answer.question, notice: "Ban da tra loi #{@user_answer.correct ? 'Dung' : 'Sai'}" 
         }
         format.json { render :show, status: :created, location: @user_answer }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @question.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -66,8 +79,7 @@ class UsersAnswersController < ApplicationController
   	params[:users_answer]
   end
 
-  def check_correct_answer(user_answer)
-  	correct_answers = Question.correct_answers(user_answer.question_id).pluck(:id).join(', ')
-    correct_answers.strip == user_answer.answer
+  def check_correct_answer(correct_answers, user_answer)
+    correct_answers.pluck(:id).join(', ').strip == user_answer.answer
   end
 end

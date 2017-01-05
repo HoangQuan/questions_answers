@@ -1,4 +1,4 @@
-  <% title (@question.title) %>
+<% title (@question.title) %>
 <section class="container main-content page-right-sidebar">
   <div class="row">
     <div class="with-sidebar-container">
@@ -22,37 +22,13 @@
                 <div class="color button small dark_button cancel">Cancel</div>
               </div>
               <!-- End reported -->
-              <div class="question_poll_end">
-                <div class="poll_1">
-                  <div class="progressbar-warp">
-                    <span class="progressbar-title">Test poll 50.64%<span>( 709 voter )</span></span>
-                    <div class="progressbar">
-                      <div class="progressbar-percent " style="width: 50.64%; background-color: rgb(52, 152, 219);" attr-percent="50.64"></div>
-                    </div>
-                    <span class="progressbar-title">Good  37.93%<span>( 531 voter )</span></span>
-                    <div class="progressbar">
-                      <div class="progressbar-percent " style="width: 37.93%; background-color: rgb(52, 152, 219);" attr-percent="37.93"></div>
-                    </div>
-                    <span class="progressbar-title">Bad 11.43%<span>( 160 voter )</span></span>
-                    <div class="progressbar">
-                      <div class="progressbar-percent " style="width: 11.43%; background-color: rgb(52, 152, 219);" attr-percent="11.43"></div>
-                    </div>
-                  </div>
-                  <!-- End progressbar-warp -->
-                </div>
-                <div class="clear"></div>
-                <div class="poll_2">
-                  <div class="loader_3"></div>
-                  <div class="form-style form-style-3">
-                    <div class="form-inputs clearfix">
-                    </div>
-                  </div>
-                </div>
+              <div class="question_poll_end" style="display: ">
+                <%= render partial: 'partials/progressbar_warp.html.erb', locals: {question: @question} %>
               </div>
               <!-- End question_poll_end -->
               <div class="clearfix height_20"></div>
               <h4><%= @question.content %></h4><br>
-                <%= form_for @question.users_answers.build, remote: true, authenticity_token: true do |f| %>
+                <%= form_for @question.users_answers.build, remote: true, authenticity_token: true, format: :js do |f| %>
                   <% @question.answers.each do |answer| %>
                     <div class="checkbox checkbox-primary">
                         <%= f.hidden_field :question_id, value: @question.id%>
@@ -61,7 +37,7 @@
                     </div>
 
                   <% end %>
-                  <%= f.submit 'Tra loi'%>
+                  <%= f.submit 'Tra loi', id: 'button-submit-question-show'%>
                 <% end %>
               </p>
               <div class="loader_2"></div>
@@ -71,13 +47,13 @@
               <span class="question-answered"><i class="fa fa-ok"></i>in progress</span>
               <span class="question-favorite"><i class="fa fa-star"></i>9</span>
             </div>
-            <span class="question-category"><a href="http://2code.info/demo/themes/ask-me/question-category/wordpress/"><i class="fa fa-folder-o"></i>WordPress</a></span>
+            <span class="question-category"><a href="http://2code.info/demo/themes/ask-me/question-category/wordpress/"><i class="fa fa-folder-o"></i><%= "#{@question.category.name}"%> - <%= "#{@question.level.name}"  %></a></span>
             <span class="question-date" datetime="July 18, 2014"><i class="fa fa-calendar"></i>
-            2 years</span>
+            <%= distance_of_time_in_words_to_now(@question.updated_at)%></span>
             <span class="question-comment"><a href="http://2code.info/demo/themes/ask-me/questions/ask-any-question-and-you-be-sure-find-your-answer-2/#comments"><i class="fa fa-comments-o"></i>59 Answer</a></span>
             <meta itemprop="interactionCount" content="UserAnswers: 59">
             <span class="question-view"><i class="icon-eye-open"></i>25472 views</span>
-            <span class="badge-span" style="background-color: #000000">Beginner</span>            <span class="single-question-vote-result question_vote_result">39</span>
+            <span class="badge-span" style="background-color: #000000"><%= @question.difficulty_level %></span>            <span class="single-question-vote-result question_vote_result">39</span>
             <ul class="single-question-vote">
               <li><a href="#" class="single-question-vote-down ask_vote_down question_vote_down vote_not_user tooltip_s" original-title="Dislike"><i class="fa fa-thumbs-down"></i></a></li>
               <li><a href="#" class="single-question-vote-up ask_vote_up question_vote_up vote_not_user tooltip_s" original-title="Like"><i class="fa fa-thumbs-up"></i></a></li>

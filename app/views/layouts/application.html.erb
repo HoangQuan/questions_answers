@@ -52,7 +52,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="home page-template page-template-template-home page-template-template-home-php page page-id-16">
+  <body class="">
     <div class="background-cover"></div>
     <div class="panel-pop" id="signup" style="margin-left: -319.5px;">
       <h2>Register Now<i class="icon-remove"></i></h2>
@@ -68,5 +68,7 @@
       <%= render 'footer' %>
     </div>
     <!-- End wrap -->
+    <%= render 'modal_login' %>
+    <%= render 'modal_answered' %>
   </body>
 </html>

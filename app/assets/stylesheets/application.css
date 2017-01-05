@@ -10,10 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap.min.css
  *= require styles.css
  *= require base.css
  *= require lists.css
- *= require bootstrap.min.css
  *= require prettyPhoto.css
  *= require font-awesome.min.css
  *= require fontello.css

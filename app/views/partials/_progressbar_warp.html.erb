@@ -1,0 +1,20 @@
+<h4>Ti le tra loi cau hoi:</h4>
+<div class="poll_1">
+  <div class="progressbar-warp">
+  <% question.answers.each do |answer| %>
+    <span class="progressbar-title"><b><%= answer.label %></b> - <%= ratio_answer(question, answer.id) %><span>( <%= total_this_answer(question, answer.id)%>/<%= total_answers(question) %> )</span></span>
+    <div class="progressbar">
+      <div class="progressbar-percent " style="width: <%=ratio_answer(question, answer.id).to_s%>; background-color: rgb(52, 152, 219);" attr-percent="<%= ratio_answer(@question, answer.id)%>"></div>
+    </div>
+  <% end %>
+  </div>
+  <!-- End progressbar-warp -->
+</div>
+<div class="clear"></div>
+<div class="poll_2">
+  <div class="loader_3"></div>
+  <div class="form-style form-style-3">
+    <div class="form-inputs clearfix">
+    </div>
+  </div>
+</div>

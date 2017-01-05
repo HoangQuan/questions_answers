@@ -16,7 +16,7 @@
                 <% Question.all.each do |question| %>
                 <article class="question question-type-poll question_author_yes post-266 type-question status-publish hentry question-category-wordpress question_tags-themes" id="post-266" role="article" itemtype="http://schema.org/Article">
                   <h2 itemprop="name">
-                    <a itemprop="url" href="<%= home_show_path %>" title="<%= question.title %>" rel="bookmark"><%= question.title %></a>
+                    <a itemprop="url" href="<%= question_path(question) %>" title="<%= question.title %>" rel="bookmark"><%= question.title %></a>
                   </h2>
                   <a class="question-report report_q" href="#">Report</a>
                   <div class="question-type-main"><i class="icon-signal"></i>Poll</div>
@@ -54,7 +54,7 @@
                       <span class="question-favorite"><i class="fa fa-star"></i>9</span>
                     </div>
                     <span class="question-category"><a href="http://2code.info/demo/themes/ask-me/question-category/wordpress/"><i class="fa fa-folder-o"></i><%= "#{question.category.name}"%> - <%= "#{question.level.name}"  %></a></span>
-                    <span class="question-date" datetime="July 18, 2014"><i class="fa fa-calendar"></i><%= distance_of_time_in_words_to_now(question.updated_at, { message: 'gio truoc'})%></span>
+                    <span class="question-date" datetime="July 18, 2014"><i class="fa fa-calendar"></i><%= distance_of_time_in_words_to_now(question.updated_at)%></span>
                     <span class="question-comment"><a href="http://2code.info/demo/themes/ask-me/questions/ask-any-question-and-you-be-sure-find-your-answer-2/#comments"><i class="fa fa-comments-o"></i>59 Answer</a></span>
                     <meta itemprop="interactionCount" content="UserAnswers: 59">
                     <span class="question-view"><i class="fa fa-eye"></i>25385 views</span>

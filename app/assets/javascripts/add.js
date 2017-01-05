@@ -17,6 +17,15 @@ $(document).on('turbolinks:load', function() {
     return event.preventDefault();
   });
   
+  $('form').on('click', '#button-submit-question-show', function(event){
+    var checked = $("#new_users_answer input[type=checkbox]:checked").length > 0; 
+    if (!checked)
+    {
+       alert('Ban chua chon dap an nao');
+       return false;
+    }
+  });
+
   $(".not_implement_yet").on("click", function(){
     alert("Chức năng này chưa được hoàn thiện !^^");
   });
