@@ -22,9 +22,10 @@
                 <div class="color button small dark_button cancel">Cancel</div>
               </div>
               <!-- End reported -->
-              <div class="question_poll_end" style="display: ">
-                <%= render partial: 'partials/progressbar_warp.html.erb', locals: {question: @question} %>
+              <div class="question_poll_end" style="display: none">
+                <%= render partial: 'partials/progressbar_warp', locals: {question: @question} %>
               </div>
+              <div class="open_stat btn btn-info">Xem thống kê <i class="fa fa-chevron-down"></i></div>
               <!-- End question_poll_end -->
               <div class="clearfix height_20"></div>
               <h4><%= @question.content %></h4><br>
@@ -32,7 +33,7 @@
                   <% @question.answers.each do |answer| %>
                     <div class="checkbox checkbox-primary">
                         <%= f.hidden_field :question_id, value: @question.id%>
-                        <%= f.check_box :answer, { :multiple => true }, answer.id, nil %>
+                        <%= f.radio_button :answer, answer.id %>
                         <%= answer.label %>: <%= answer.content %>
                     </div>
 

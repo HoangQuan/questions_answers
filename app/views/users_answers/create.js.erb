@@ -1,7 +1,7 @@
-$('#user_ansered').html("<%= @user_answers.pluck(:label).join(', ') %>");
-$('#correct_answer').html("<%= @correct_answers.pluck(:label).join(', ') %>");
+$('#user_ansered').html("<%= @user_answers.try(:label) %>");
+$('#correct_answer').html("<%= @correct_answers.try :label %>");
 $('#answer-result').html("<%= @user_answer.correct ? 'Dung' : 'Sai' %>");
-$('.question_poll_end').html("<%= j render partial: 'partials/progressbar_warp.html.erb', locals: {question: @question} %>");
-$('.question_poll_end').show();
+$('.question_poll_end').html("<%= j render partial: 'partials/progressbar_warp', locals: {question: @question} %>");
+$('.open_stat').click();
 $('#button-submit-question-show').hide();
 $('#modal-answered').modal('show');

@@ -6,5 +6,9 @@ class Question < ApplicationRecord
 
   accepts_nested_attributes_for :answers, allow_destroy: true, :reject_if => lambda { |a| a[:content].blank? }
 
-  scope :correct_answers, -> (question_id) { find(question_id).answers.corrected }
+  # scope :correct_answer, -> (question_id) { find(question_id).answers.corrected }
+
+  def correct_answer
+  	answers.find_by(correct: true)
+  end
 end

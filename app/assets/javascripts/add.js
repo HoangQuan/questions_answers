@@ -18,7 +18,7 @@ $(document).on('turbolinks:load', function() {
   });
   
   $('form').on('click', '#button-submit-question-show', function(event){
-    var checked = $("#new_users_answer input[type=checkbox]:checked").length > 0; 
+    var checked = $("#new_users_answer input[type=radio]:checked").length > 0; 
     if (!checked)
     {
        alert('Ban chua chon dap an nao');
@@ -28,6 +28,13 @@ $(document).on('turbolinks:load', function() {
 
   $(".not_implement_yet").on("click", function(){
     alert("Chức năng này chưa được hoàn thiện !^^");
+  });
+
+  $(".open_stat").on('click', function(event){
+    $(".question_poll_end").toggle(500);
+    $(this).html(function(i, text){
+      return text === 'Xem thống kê <i class="fa fa-chevron-down"></i>' ? 'Ẩn thống kê <i class="fa fa-chevron-up"></i>' : 'Xem thống kê <i class="fa fa-chevron-down"></i>';
+    })
   });
 
   function ChangeToSlug(selected, target_input)

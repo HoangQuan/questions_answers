@@ -26,14 +26,15 @@ class UsersAnswersController < ApplicationController
 
   def create
     @question = Question.find(users_answer_params[:question_id])
-    @user_answer = UsersAnswer.new(user_id: 1, question_id: users_answer_params[:question_id], answer: users_answer_params[:answer].join(', '))
-    @correct_answers = Question.correct_answers(@user_answer.question_id)
+    # @user_answer = UsersAnswer.new(user_id: 1, question_id: users_answer_params[:question_id], answer: users_answer_params[:answer].join(', '))
+    @user_answer = UsersAnswer.new(user_id: 1, question_id: users_answer_params[:question_id], answer: users_answer_params[:answer])
+    @correct_answers = @question.correct_answer
 
     if @correct_answers.present?
       @user_answer.correct = check_correct_answer(@correct_answers, @user_answer)
     end
 
-    @user_answers = Answer.where(id: users_answer_params[:answer])
+    @user_answers = Answer.find_by(id: users_answer_params[:answer])
     # @user_result = {
     #   answer_labels: 
     # }
@@ -79,7 +80,7 @@ class UsersAnswersController < ApplicationController
   	params[:users_answer]
   end
 
-  def check_correct_answer(correct_answers, user_answer)
-    correct_answers.pluck(:id).join(', ').strip == user_answer.answer
+  def check_correct_answer(correct_answer, user_answer)
+    correct_answer.id == user_answer.answer.to_i
   end
 end
