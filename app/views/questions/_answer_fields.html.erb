@@ -6,12 +6,12 @@
       <%= att.hidden_field :label, value: label %>
       <%= att.hidden_field :_destroy, class: 'destroy_element' %>
         <ul class="question_poll_item question_polls_item ui-sortable">
-          <li id="poll_li_5" style="display: inline-block;">
-            <p><%= att.text_field :label, value: label, placeholder: "Nhan cua phuong an: A, B, C...", size: '100'%></p>
-            <div class="poll-li">
+          <li id="poll_li_5" style="display: inline-block; background-color: #f2eaea;">
+            <p><%= att.text_field :label, value: label, placeholder: t('views.answers.answer_label'), size: '100'%></p>
+            <div class="poll-li" style="display: inline-block; background-color: #f2eaea;">
               <p><%= att.text_field :content, placeholder: "Noi dung Phuong an #{label}" %></p>
               <div class="del-poll-li remove_fields"><%= link_to "<i class='fa fa-remove'>".html_safe, "javascript:void(0)", class: "btn btn-danger btn-mini" %></i></div>
-              <span><%= att.check_box :correct, checked: answer.correct, class: 'question_poll' %> Dap an dung</span>
+              <span><%= att.check_box :correct, checked: answer.correct, class: 'question_poll' %> <%= t('views.answers.correct_answer')%></span>
               <span><%= att.file_field :image %></span>
               <% if answer && answer.image? %>
                 <span><%= link_to answer.image_url, answer.image_url  %></span>
@@ -31,12 +31,12 @@
     <%= att.hidden_field :label, value: answer.label || 'A' %>
     <%= att.hidden_field :_destroy, class: 'destroy_element' %>
       <ul class="question_poll_item question_polls_item ui-sortable">
-        <li id="poll_li_5" style="display: inline-block;">
-          <p><%= att.text_field :label, placeholder: "Nhan cua phuong an: A, B, C...", size: '100' %></p>
+        <li id="poll_li_5" style="display: inline-block; background-color: #f2eaea;">
+          <p><%= att.text_field :label, placeholder: t('views.answers.answer_label'), size: '100' %></p>
           <div class="poll-li">
             <p><%= att.text_field :content, placeholder: "Noi dung Phuong an #{answer.label}" %></p>
             <div class="del-poll-li remove_fields"><%= link_to "<i class='fa fa-remove'>".html_safe, "javascript:void(0)", class: "btn btn-danger btn-mini" %></i></div>
-            <span><%= att.check_box :correct, checked: answer.correct, class: 'question_poll' %> Dap an dung</span>
+            <span><%= att.check_box :correct, checked: answer.correct, class: 'question_poll' %> <%= t('views.answers.correct_answer')%></span>
             <span><%= att.file_field :image %></span>
             <% if answer && answer.image? %>
               <span><%= link_to answer.image_url, answer.image_url  %></span>

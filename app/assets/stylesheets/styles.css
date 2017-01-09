@@ -91,3 +91,9 @@ div.wpcf7 input[type="file"]:disabled {
 /*body.modal-open div.modal-backdrop1 { 
     z-index: 10000000112 !important; 
 }*/
+.center {
+    text-align: center;
+}
+a {
+    text-decoration: none !important;
+}

@@ -28,16 +28,14 @@ class UsersAnswersController < ApplicationController
     @question = Question.find(users_answer_params[:question_id])
     # @user_answer = UsersAnswer.new(user_id: 1, question_id: users_answer_params[:question_id], answer: users_answer_params[:answer].join(', '))
     @user_answer = UsersAnswer.new(user_id: 1, question_id: users_answer_params[:question_id], answer: users_answer_params[:answer])
-    @correct_answers = @question.correct_answer
+    correct_answer = @question.correct_answer
 
-    if @correct_answers.present?
-      @user_answer.correct = check_correct_answer(@correct_answers, @user_answer)
+    if correct_answer.present?
+      @user_answer.correct = check_correct_answer(correct_answer, @user_answer)
     end
 
-    @user_answers = Answer.find_by(id: users_answer_params[:answer])
-    # @user_result = {
-    #   answer_labels: 
-    # }
+    answer = Answer.find_by(id: users_answer_params[:answer])
+    set_attributes(correct_answer, answer)
 
     respond_to do |format|
       if @user_answer.save
@@ -82,5 +80,13 @@ class UsersAnswersController < ApplicationController
 
   def check_correct_answer(correct_answer, user_answer)
     correct_answer.id == user_answer.answer.to_i
+  end
+
+  def set_attributes(correct_answer, answer)
+    @correct_answer = correct_answer
+    answer_result        = t("views.answers.#{@user_answer.correct ? 'correct' : 'incorrect'}")
+    correct_answer_label = t('views.answers.correct_answer_result', answer: @correct_answer.try(:label))
+    user_answered_label  = t('views.answers.user_answered', answer: answer.try(:label))
+    @attr_user_answer = Attr::UserAnswer.new(answer_result, correct_answer_label, user_answered_label)
   end
 end

@@ -11,7 +11,7 @@
             <p>
               <label class="required"><%= f.label :title %><span>*</span></label>
               <%= f.text_field :title, class: 'the-title' %>
-              <span class="form-description">Please choose an appropriate title for the question to answer it even easier .</span>
+              <span class="form-description">Hãy chọn tiêu đề ngắn ngọn và dễ hiểu !^^</span>
             </p>
 
             <p>
@@ -38,6 +38,13 @@
               </span>
             </p>
 
+            <p>
+              <label class="required"><%= f.label :difficulty_level %><span>*</span></label>
+              <span class="styled-select">
+              <%= f.select :difficulty_level, Settings.questions.difficulty_level.map{|level| [t("views.answers.difficulty_level.#{level}"), level]}, selected: @question.difficulty_level, class: 'postform' %>
+              </span>
+            </p>
+
             <p class="question_poll_p" id="input_attachments">
               <label for="question_poll-298">Poll</label>
               <% unless @question.new_record? %>
@@ -46,9 +53,9 @@
                 <% end %>
                 <%= link_to_add_attachment t(:button_add_image, scope: [:views, :labels]), f, :answers, {append_id: "input_attachments", table_id: " link_to_add_attachment", class: "btn btn-warning btn-mini" } %>
               <% else %>
-                <span class="question_poll">This question is a poll ?</span>
-                <span class="poll-description">If you want to be doing a poll click here .</span>
-                <%= link_to_add_attachment t(:button_add_image, scope: [:views, :labels]), f, :answers, {append_id: "input_attachments", table_id: " link_to_add_attachment", class: "btn btn-warning btn-mini" } %>
+                <span class="question_poll">Đây là một câu hỏi trác nghiệm?</span>
+                <span class="poll-description"> Click vào đây .</span>
+                <%= link_to_add_attachment t(:button_add_answer, scope: [:views, :labels]), f, :answers, {append_id: "input_attachments", table_id: " link_to_add_attachment", class: "btn-warning btn-mini" } %>
               <% end %>
             </p>
           </div>

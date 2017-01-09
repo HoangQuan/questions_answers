@@ -18,7 +18,7 @@
                   <h2 itemprop="name">
                     <a itemprop="url" href="<%= question_path(question) %>" title="<%= question.title %>" rel="bookmark"><%= question.title %></a>
                   </h2>
-                  <a class="question-report report_q" href="#">Report</a>
+                  <a class="question-report report_q" href="#"><%= t('views.button.report')%></a>
                   <div class="question-type-main"><i class="icon-signal"></i>Poll</div>
                   <div class="question-author">
                     <a href="http://2code.info/demo/themes/ask-me/author/primegods/" original-title="primegods" class="question-author-img tooltip-n">
@@ -29,22 +29,13 @@
                     <div class="clearfix"></div>
                     <div class="question-desc">
                       <%= question.content %>
-
-                      <%question.answers.each do |answer| %>
-                        <div class="checkbox checkbox-primary">
-                          <input id="checkbox2" type="checkbox">
-                          <!-- <label for="checkbox2"> -->
-                            <%= answer.label%>: <%= answer.content %>
-                          <!-- </label> -->
-                        </div>
-                      <% end %>
                       <div class="explain-reported">
-                        <h3>Please briefly explain why you feel this question should be reported .</h3>
+                        <h3><%= t('views.answers.report_reason')%></h3>
                         <textarea name="explain-reported"></textarea>
                         <div class="clearfix"></div>
                         <div class="loader_3"></div>
-                        <div class="color button small report">Report</div>
-                        <div class="color button small dark_button cancel">Cancel</div>
+                        <div class="color button small report"><%= t('views.button.report')%></div>
+                        <div class="color button small dark_button cancel"><%= t('views.button.cancel')%></div>
                       </div>
                       <!-- End reported -->
                       <div class="no_vote_more"></div>
@@ -58,7 +49,7 @@
                     <span class="question-comment"><a href="http://2code.info/demo/themes/ask-me/questions/ask-any-question-and-you-be-sure-find-your-answer-2/#comments"><i class="fa fa-comments-o"></i>59 Answer</a></span>
                     <meta itemprop="interactionCount" content="UserAnswers: 59">
                     <span class="question-view"><i class="fa fa-eye"></i>25385 views</span>
-                    <span class="badge-span" style="background-color: #000000"><%= question.difficulty_level %></span>      
+                    <span class="badge-span" style="background-color: #000000"><%= t("views.answers.difficulty_level.#{question.difficulty_level}") %></span>      
                     <div class="clearfix"></div>
                   </div>
                 </article>

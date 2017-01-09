@@ -1,10 +1,15 @@
 vi:
   views:
+    button:
+      close: 'Đóng'
+      cancel: 'Hủy'
+      report: 'Báo lỗi'
     labels:
       button_create: "Tạo mới"
       button_edit: "Cập nhật"
       button_cancel: "Hủy bỏ"
       button_add_image: "+ Thêm ảnh"
+      button_add_answer: 'Thêm Đáp án'
       update_info: "Sửa thông tin"
       product_new: "Mới"
       product_hot: "Hot"
@@ -14,3 +19,21 @@ vi:
       delete: "Xóa"
       confirm: "Bạn chắc chứ?"
       back: "Quay Lại"
+    answers:
+      correct_answer_result: "Đáp án đúng là: <span class='red'>%{answer}</span>"
+      user_answered: "Đáp án của bạn: <span class='red'>%{answer}</span>"
+      correct_answer: 'Phương án này đúng'
+      correct: Đúng
+      incorrect: Sai
+      no_answer: 'Câu hỏi này hiện tại chưa có đáp án đúng'
+      result: 'Kết quả trả lời'
+      stat: 'Thống kê trả lời câu hỏi:'
+      answer: 'Phương án'
+      report_reason: 'Nhập lý do bạn báo lỗi cho câu hỏi hày'
+      difficulty_level:
+        easy: 'Dễ'
+        normal: 'Trung bình'
+        hard: 'Khó'
+        hardest: 'Nâng cao'
+      answer_label: 'Nhãn của phương án: A, B, C, D'
+

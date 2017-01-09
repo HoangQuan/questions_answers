@@ -1,1 +1,3 @@
 store_name: "Cứ Hỏi đi"
+questions:
+  difficulty_level: ['easy', normal, 'hard', 'hardest']
