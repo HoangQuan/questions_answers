@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @question = Question.new(title: params[:title])
   end
 
   def edit

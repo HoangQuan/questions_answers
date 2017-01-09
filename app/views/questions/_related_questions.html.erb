@@ -1,0 +1,12 @@
+<div id="related-posts">
+  <h2><%= t('views.questions.related_questions')%></h2>
+  <ul class="related-posts">
+    <%Question.all.each do |question|%>
+    <li class="related-item">
+      <h3><a href="<%= question_path(question) %>" title="<%= question.title %>"><i class="fa fa-double-angle-right"></i>
+      <span class="btn btn-success"><%= (10..100).to_a.sample %></span>
+      <%= question.title %></a></h3>
+    </li>
+    <% end %>
+  </ul>
+</div>

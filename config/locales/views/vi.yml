@@ -4,6 +4,7 @@ vi:
       close: 'Đóng'
       cancel: 'Hủy'
       report: 'Báo lỗi'
+      answer: 'Trả lời'
     labels:
       button_create: "Tạo mới"
       button_edit: "Cập nhật"
@@ -36,4 +37,6 @@ vi:
         hard: 'Khó'
         hardest: 'Nâng cao'
       answer_label: 'Nhãn của phương án: A, B, C, D'
+    questions:
+      related_questions: 'Câu hỏi liên quan'
 

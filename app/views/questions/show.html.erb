@@ -8,7 +8,7 @@
         <% end %>
         <article class="question single-question question-type-poll post-266 type-question status-publish hentry question-category-wordpress question_tags-themes" id="post-266" role="article" itemtype="http://schema.org/Article">
           <h2 itemprop="name"><%= @question.title %></h2>
-          <a class="question-report report_q" href="#">Report</a>
+          <a class="question-report report_q" href="#"><%= t('views.button.report')%></a>
           <div class="question-type-main"><i class="icon-signal"></i>Poll</div>
           <div class="question-inner">
             <div class="clearfix"></div>
@@ -38,7 +38,7 @@
                     </div>
 
                   <% end %>
-                  <%= f.submit 'Tra loi', id: 'button-submit-question-show'%>
+                  <%= f.submit t('views.button.answer'), id: 'button-submit-question-show', class: 'center'%>
                 <% end %>
               </p>
               <div class="loader_2"></div>
@@ -54,7 +54,7 @@
             <span class="question-comment"><a href="http://2code.info/demo/themes/ask-me/questions/ask-any-question-and-you-be-sure-find-your-answer-2/#comments"><i class="fa fa-comments-o"></i>59 Answer</a></span>
             <meta itemprop="interactionCount" content="UserAnswers: 59">
             <span class="question-view"><i class="icon-eye-open"></i>25472 views</span>
-            <span class="badge-span" style="background-color: #000000"><%= t("views.answers.difficulty_level.#{@question.difficulty_level}") %></span>            <span class="single-question-vote-result question_vote_result">39</span>
+            <span class="badge-span" style="background-color: #000000"><%= t("views.answers.difficulty_level.#{@question.difficulty_level}") if @question.difficulty_level %></span><span class="single-question-vote-result question_vote_result">39</span>
             <ul class="single-question-vote">
               <li><a href="#" class="single-question-vote-down ask_vote_down question_vote_down vote_not_user tooltip_s" original-title="Dislike"><i class="fa fa-thumbs-down"></i></a></li>
               <li><a href="#" class="single-question-vote-up ask_vote_up question_vote_up vote_not_user tooltip_s" original-title="Like"><i class="fa fa-thumbs-up"></i></a></li>
@@ -148,23 +148,8 @@
           </div>
         </div>
         <!-- End about-author -->
-        <div id="related-posts">
-          <h2>Related questions</h2>
-          <ul class="related-posts">
-            <li class="related-item">
-              <h3><a href="http://2code.info/demo/themes/ask-me/questions/how-to-display-all-user-data/" title="How to display all user data?"><i class="icon-double-angle-right"></i>How to display all user data?</a></h3>
-            </li>
-            <li class="related-item">
-              <h3><a href="http://2code.info/demo/themes/ask-me/questions/what-is-the-best-place-to-learn-web-and-especially-wordpress/" title="What is the best place to learn web and especially WordPress ?"><i class="icon-double-angle-right"></i>What is the best place to learn web and especially WordPress ?</a></h3>
-            </li>
-            <li class="related-item">
-              <h3><a href="http://2code.info/demo/themes/ask-me/questions/what-is-the-meta-post/" title="What is the Meta Post ?"><i class="icon-double-angle-right"></i>What is the Meta Post ?</a></h3>
-            </li>
-            <li class="related-item">
-              <h3><a href="http://2code.info/demo/themes/ask-me/questions/this-is-my-first-question/" title="This Is My first Question"><i class="icon-double-angle-right"></i>This Is My first Question</a></h3>
-            </li>
-          </ul>
-        </div>
+
+        <%= render 'related_questions' %>
         <!-- End related-posts -->
 
         <%# render 'comments'%>
@@ -176,6 +161,7 @@
           <div class="boxedtitle page-title">
             <h2>Leave an answer</h2>
           </div>
+          <div class="fb-comments" data-href="<%= question_path(@question) %>" data-numposts="5"></div>
           <p class="no-login-comment">You must <a href="http://2code.info/demo/themes/ask-me/login/" class="login-comments">login</a> or <a href="http://2code.info/demo/themes/ask-me/login/" class="signup">register</a> to add a new answer .</p>
         </div>
         <div class="post-next-prev clearfix">

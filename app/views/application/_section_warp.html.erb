@@ -3,22 +3,23 @@
     <div class="box_icon box_warp box_no_border box_no_background">
       <div class="row">
         <div class="col-md-3">
-          <h2>Welcome to Ask me</h2>
-          <p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque.</p>
+          <h2>Chào mừng đến với Hỏi đi</h2>
+          <p>Trang web giúp các bạn học sinh, sinh viên đặt câu hỏi, trả lời và ôn tập kiến thức bằng trắc nghiệm</p>
           <div class="clearfix"></div>
           <a class="color button dark_button medium" href="author/ask-me/">About Us</a>
           <a class="color button dark_button medium" href="login/">Join Now</a>
         </div>
         <div class="col-md-9">
-          <form class="form-style form-style-2" method="post" action="http://2code.info/demo/themes/ask-me/ask-question/">
+        <% @question = Question.new %>
+          <%= form_for @question, as: :post, url: new_question_path(@question), method: :get, html: { class: "form-style form-style-2",  } do |f| %>
             <p>
-              <textarea name="title" rows="4" id="question_title" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">Ask any question and you be sure find your answer ?</textarea>
-              <i class="icon-pencil"></i>
+              <textarea name="title" rows="4" id="question_title" placeholder='Viết bất kỳ câu hỏi nào mà bạn muốn chúng tôi trả lời'></textarea>
+              <i class="fa fa-pencil"></i>
               <input type="hidden" name="form_type" value="add_question">
               <input type="hidden" name="post_type" value="add_question">
-              <button class="ask-question"><span class="color button small publish-question ask-not-login">Ask Now</span></button>
+              <button class="ask-question"><span class="color button small publish-question ask-not-login">Hỏi ngay</span></button>
             </p>
-          </form>
+          <% end %>
         </div>
       </div>
       <!-- End row -->
