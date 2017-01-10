@@ -9,11 +9,16 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
       t.string :hint
       t.integer :level_id
       t.string :slug
-      t.integer :points
-      t.integer :remain_points
+      t.integer :points, default: 0
+      t.integer :remain_points, default: 0
       t.string :image_url
       t.string :image
+      t.string :video_url # facebook and youtube
       t.string :difficulty_level # De, Trung binh, Kho
+      t.string :fb_post_id
+      t.integer :count_views
+      t.integer :count_likes
+      t.integer :updated_user_id
 
       t.timestamps
     end

@@ -7,49 +7,49 @@
 
           <div class="form-inputs clearfix">
             <p>
-              <label class="required"><%= f.label :title %><span>*</span></label>
+              <label class="required"><%= h_model(f, :title) %><span>*</span></label>
               <%= f.text_field :title, class: 'the-title' %>
               <span class="form-description">Hãy chọn tiêu đề ngắn ngọn và dễ hiểu !^^</span>
             </p>
 
             <p>
-              <label class="required"><%= f.label :category %><span>*</span></label>
+              <label class="required"><%= h_model(f, :category_id) %><span>*</span></label>
               <span class="styled-select">
               <%= f.collection_select :category_id, Category.all, :id, :name, selected: @question.category_id, class: 'postform' %>
               </span>
             </p>
 
             <p>
-              <label class="required"><%= f.label :content %><span>*</span></label>
+              <label class="required"><%= h_model(f, :content) %><span>*</span></label>
               <%= f.text_area :content, class: 'the-title the-textarea' %>
             </p>
 
             <p>
-              <label class="required"><%= f.label :hint %><span>*</span></label>
+              <label class="required"><%= h_model f, :hint %><span>*</span></label>
               <%= f.text_area :hint, class: 'the-title the-textarea' %>
             </p>
 
             <p>
-              <label class="required"><%= f.label :level %><span>*</span></label>
+              <label class="required"><%= h_model f, :level_id %><span>*</span></label>
               <span class="styled-select">
               <%= f.collection_select :level_id, Level.all, :id, :name, selected: @question.level_id, class: 'postform' %>
               </span>
             </p>
 
             <p>
-              <label class="required"><%= f.label :difficulty_level %><span>*</span></label>
+              <label class="required"><%= h_model f, :difficulty_level %><span>*</span></label>
               <span class="styled-select">
               <%= f.select :difficulty_level, Settings.questions.difficulty_level.map{|level| [t("views.answers.difficulty_level.#{level}"), level]}, selected: @question.difficulty_level, class: 'postform' %>
               </span>
             </p>
 
             <p class="question_poll_p" id="input_attachments">
-              <label for="question_poll-298">Poll</label>
+              <label for="question_poll-298"><%= h_model f, :poll %></label>
               <% unless @question.new_record? %>
                 <% @question.answers && @question.answers.each_with_index do |answer, i| %>
                   <%= render "answer_fields", {answer: answer, f: f, id: i} %>
                 <% end %>
-                <%= link_to_add_attachment t(:button_add_image, scope: [:views, :labels]), f, :answers, {append_id: "input_attachments", table_id: " link_to_add_attachment", class: "btn btn-warning btn-mini" } %>
+                <%= link_to_add_attachment t(:button_add_answer, scope: [:views, :labels]), f, :answers, {append_id: "input_attachments", table_id: " link_to_add_attachment", class: "btn btn-warning btn-mini" } %>
               <% else %>
                 <span class="question_poll">Đây là một câu hỏi trác nghiệm?</span>
                 <span class="poll-description"> Click vào đây .</span>

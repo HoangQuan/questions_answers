@@ -1,0 +1,86 @@
+vi:
+  models:
+    questions:
+      title: Tiêu đề
+      content: Nội dung
+      image: Hình ảnh
+      category_id: Lĩnh vực
+      status: Trạng thái
+      question_type: Loại câu hỏi
+      slug: Tiêu đề trên link
+      created_at: Ngày đăng
+      fb_post_url: Link đăng đến Facebook
+      create_user: Người tạo
+      updated_user: Người sửa
+      remain_points: Điểm còn lại
+      points: Điểm
+      hint: Gợi ý
+      level_id: Trình độ
+      difficulty_level: Độ khó
+      poll: Trắc nghiệm
+    categories:
+      name: Tiêu đề
+      description: Mô tả
+      slug: Tiêu đề trên link
+      image: Ảnh
+    users:
+      name: Tiêu đề
+      type: Loại người dùng
+      avatar: Avatar
+      email: Email
+  activemodel:
+    errors:
+  activerecord:
+    attributes:
+      question:
+        title: Tiêu đề
+        category_id: Lĩnh vực
+        content: Nội dung
+      category:
+        name: "Tiêu đề"
+        slug: "Tiêu đề trên link"
+        image: "Ảnh"
+      campaign:
+        name: "Tiêu đề"
+        campaign_value: "Phần trăm khuyến mãi"
+    errors:
+      models:
+        question:
+          attributes:
+            title:
+              blank: "cần phải nhập"
+              too_short: "quá ngắn"
+              too_long: "quá dài"
+              taken: "đã tồn tại trong hệ thống"
+            content:
+              blank: "cần phải nhập"
+              too_short: "quá ngắn"
+              too_long: "quá dài"
+              taken: "đã tồn tại trong hệ thống"
+            level_id:
+              blank: "cần phải nhập"
+              too_short: "quá ngắn"
+              taken: "đã tồn tại trong hệ thống"
+              too_long: "quá dài"
+            category_id:
+              blank: "cần phải chọn"
+              too_short: "quá ngắn"
+              taken: "đã tồn tại trong hệ thống"
+              too_long: "quá dài"
+        category:
+          attributes:
+            name:
+              blank: "cần phải nhập"
+              too_short: "quá ngắn"
+              taken: "đã tồn tại trong hệ thống"
+              too_long: "quá dài"
+            slug:
+              blank: "cần phải nhập"
+              too_short: "quá ngắn"
+              taken: "đã tồn tại trong hệ thống"
+              too_long: "quá dài"
+            image:
+              blank: "cần phải chọn"
+              too_short: "quá ngắn"
+              taken: "đã tồn tại trong hệ thống"
+              too_long: "quá dài"

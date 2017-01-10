@@ -17,4 +17,8 @@ module ApplicationHelper
       request.user_agent =~ /Mobile|webOS/
     end
   end
+
+  def h_model(f, attribute)
+    t("models.#{f.object.class.to_s.downcase.pluralize}.#{attribute.to_s}")
+  end
 end

@@ -4,7 +4,7 @@
     <%Question.all.each do |question|%>
     <li class="related-item">
       <h3><a href="<%= question_path(question) %>" title="<%= question.title %>"><i class="fa fa-double-angle-right"></i>
-      <span class="btn btn-success"><%= (10..100).to_a.sample %></span>
+      <span class="btn btn-success"><span> <%= (10..100).to_a.sample %></span></span>
       <%= question.title %></a></h3>
     </li>
     <% end %>

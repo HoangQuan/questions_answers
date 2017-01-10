@@ -7,10 +7,10 @@
       <h3 class="widget_title">Stats</h3>
       <div class="widget_stats ul_list ul_list-icon-ok">
         <ul>
-          <li><i class="icon-question-sign"></i>Questions ( <span>12</span> )</li>
-          <li><i class="fa fa-comments-o"></i>Answers ( <span>144</span> )</li>
-          <li><i class="fa fa-comments-o"></i>Best Answers ( <span>8</span> )</li>
-          <li><i class="icon-user"></i>Users ( <span>811</span> )</li>
+          <li><i class="icon-question-sign"></i>Questions ( <span><%= Question.count %></span> )</li>
+          <li><i class="fa fa-comments-o"></i>Answers ( <span><%= Answer.count %></span> )</li>
+          <!-- <li><i class="fa fa-comments-o"></i>Best Answers ( <span>8</span> )</li> -->
+          <li><i class="icon-user"></i>Users ( <span><%= User.count %></span> )</li>
         </ul>
       </div>
     </div>
@@ -67,6 +67,24 @@
     <div id="login-widget-2" class="widget login-widget">
       <h3 class="widget_title">Login</h3>
       <div class="widget_login">
+
+
+      <ul class="widget_social">
+
+        <li class="facebook-fans">
+          <a href="https://www.facebook.com/2code.info/" target="_blank">
+          <strong>
+          <i class="social_icon-facebook"></i>
+          <!-- <span>436</span><br> -->
+          <span>Login via</span>
+          <small>Facebook </small>
+          </strong>
+          </a>
+        </li>
+
+      </ul>
+      <br>
+       <div class="center" style="background-color: #aea28f">OR</div> 
         <div class="form-style form-style-2">
           <div class="ask_form inputs">
             <form class="login-form ask_login" action="http://2code.info/demo/themes/ask-me/" method="post">

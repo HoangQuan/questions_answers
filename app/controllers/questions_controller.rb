@@ -11,6 +11,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    Question.update_counters(@question.id, count_views: 1)
     # @q = Product.search(params[:q])
     # CountView.increase_product_count(@product.id, current_user.try(:id))
     # @related_products = Product.includes(:product_images).related_products

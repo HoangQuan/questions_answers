@@ -97,3 +97,26 @@ div.wpcf7 input[type="file"]:disabled {
 a {
     text-decoration: none !important;
 }
+
+span.field_with_errors input.the-title {
+  background: rgba(213, 84, 68, 0.2);
+}
+
+span.field_with_errors textarea.the-title {
+  background: rgba(213, 84, 68, 0.2);
+}
+
+span.field_with_errors select.the-title {
+  background: rgba(213, 84, 68, 0.2);
+}
+
+/*.field_with_errors::before { 
+  content: " - Xuất hiện lỗi";
+  background-color: yellow;
+  color: red;
+  font-weight: bold;
+}*/
+
+.label-text1 {
+  width: 50% !important;
+}

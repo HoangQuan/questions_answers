@@ -52,13 +52,18 @@ ActiveRecord::Schema.define(version: 20161223045708) do
     t.string   "hint"
     t.integer  "level_id"
     t.string   "slug"
-    t.integer  "points"
-    t.integer  "remain_points"
+    t.integer  "points",           default: 0
+    t.integer  "remain_points",    default: 0
     t.string   "image_url"
     t.string   "image"
+    t.string   "video_url"
     t.string   "difficulty_level"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "fb_post_id"
+    t.integer  "count_views"
+    t.integer  "count_likes"
+    t.integer  "updated_user_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["title", "category_id", "level_id"], name: "index_questions_on_title_and_category_id_and_level_id", using: :btree
     t.index ["title", "level_id"], name: "index_questions_on_title_and_level_id", using: :btree
     t.index ["title", "question_type"], name: "index_questions_on_title_and_question_type", using: :btree
