@@ -15,6 +15,9 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :lon
       t.string :lat
       t.string :description
+      t.datetime :birthday
+      t.integer :level_id
+      t.string :level_state
 
       t.index :email, :unique => true
       t.index :uid, :unique => true

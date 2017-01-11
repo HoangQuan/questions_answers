@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate!, only: [:new, :create, :edit, :update]
   
   def index
     # @q = Product.search(params[:q])
@@ -29,7 +30,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    @question.user_id = 1
+    @question.user_id = @question.updated_user_id = current_user.id
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'question was successfully created.' }
@@ -42,6 +43,7 @@ class QuestionsController < ApplicationController
   end
   def update
     @question.attributes = question_params
+    @question.updated_user_id = current_user.id
 
     respond_to do |format|
       if @question.save

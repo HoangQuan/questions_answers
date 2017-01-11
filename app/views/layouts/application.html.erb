@@ -70,5 +70,10 @@
     <!-- End wrap -->
     <%= render 'modal_login' %>
     <%= render 'modal_answered' %>
+    <script type="text/javascript">
+      <% if notice == "Bạn phải Dang nhap!!!"%>
+        $("#modal-login").modal('show');
+      <% end %>
+    </script>
   </body>
 </html>

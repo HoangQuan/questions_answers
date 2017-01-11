@@ -21,9 +21,9 @@
                   <a class="question-report report_q" href="#"><%= t('views.button.report')%></a>
                   <div class="question-type-main"><i class="icon-signal"></i>Poll</div>
                   <div class="question-author">
-                    <a href="http://2code.info/demo/themes/ask-me/author/primegods/" original-title="primegods" class="question-author-img tooltip-n">
+                    <a href="<%= user_path(question.user)%>" original-title="<%= question.user.name %>" class="question-author-img tooltip-n">
                     <span></span>
-                    <img alt="" src="http://2.gravatar.com/avatar/83fd0d89f0243bcb6b9de278321d86f0?s=65&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/83fd0d89f0243bcb6b9de278321d86f0?s=130&amp;d=mm&amp;r=g 2x" class="avatar avatar-65 photo" height="65" width="65">         </a>
+                    <img alt="" src="<%= question.user.avatar %>" srcset="<%= question.user.avatar %>" class="avatar avatar-65 photo" height="65" width="65">         </a>
                   </div>
                   <div class="question-inner">
                     <div class="clearfix"></div>

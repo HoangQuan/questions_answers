@@ -930,38 +930,38 @@ $(document).ready(function($) {
             directionNav: true,
         });
     }
-    $(".tooltip-n").tipsy({
-        fade: true,
-        gravity: "s"
-    });
-    $(".tooltip-s").tipsy({
-        fade: true,
-        gravity: "n"
-    });
-    $(".tooltip-nw").tipsy({
-        fade: true,
-        gravity: "nw"
-    });
-    $(".tooltip-ne").tipsy({
-        fade: true,
-        gravity: "ne"
-    });
-    $(".tooltip-w").tipsy({
-        fade: true,
-        gravity: "w"
-    });
-    $(".tooltip-e").tipsy({
-        fade: true,
-        gravity: "e"
-    });
-    $(".tooltip-sw").tipsy({
-        fade: true,
-        gravity: "sw"
-    });
-    $(".tooltip-se").tipsy({
-        fade: true,
-        gravity: "se"
-    });
+    // $(".tooltip-n").tipsy({
+    //     fade: true,
+    //     gravity: "s"
+    // });
+    // $(".tooltip-s").tipsy({
+    //     fade: true,
+    //     gravity: "n"
+    // });
+    // $(".tooltip-nw").tipsy({
+    //     fade: true,
+    //     gravity: "nw"
+    // });
+    // $(".tooltip-ne").tipsy({
+    //     fade: true,
+    //     gravity: "ne"
+    // });
+    // $(".tooltip-w").tipsy({
+    //     fade: true,
+    //     gravity: "w"
+    // });
+    // $(".tooltip-e").tipsy({
+    //     fade: true,
+    //     gravity: "e"
+    // });
+    // $(".tooltip-sw").tipsy({
+    //     fade: true,
+    //     gravity: "sw"
+    // });
+    // $(".tooltip-se").tipsy({
+    //     fade: true,
+    //     gravity: "se"
+    // });
     if ($(".question_tags,.post_tag").length) {
         $('.question_tags,.post_tag').tag();
     }

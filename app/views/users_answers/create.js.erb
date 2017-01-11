@@ -1,15 +1,24 @@
-<% if @correct_answer %>
-  $('#answer-result').html("<%= @attr_user_answer.answer_result %>");
-  $('#correct_answer').html("<%== @attr_user_answer.correct_answer_label %>");
-  $('#user_ansered').html("<%== @attr_user_answer.user_answered_label %>");
-  $('.question_poll_end').html("<%= j render partial: 'partials/progressbar_warp', locals: {question: @question} %>");
-  $('.open_stat').click();
-  $('#modal-answered').modal('show');
-<% elsif @user_answer %>
-  $('#correct_answer').html("<%= t('views.answers.no_answer') %>");
-  $('#user_ansered').html("<%== @attr_user_answer.user_answered_label %>");
-  $('.question_poll_end').html("<%= j render partial: 'partials/progressbar_warp', locals: {question: @question} %>");
-  $('.question_poll_end').show();
-  $(".open_stat").html('Ẩn thống kê <i class="fa fa-chevron-up"></i>');
-  $('#modal-answered').modal('show');
+<%if @already_answered%>
+  $('#answer-result').html("<%= t('views.answers.already_answered')%>");
+<% else %>
+  <% if @correct_answer %>
+    $('#answer-result').html("<span class='btn btn-info'><%= @attr_user_answer.answer_result %></span>");
+
+    // point
+    <%if @user_answer.correct%>
+    $("#user-point").html("<i class='fa fa-star'></i><span><%= t('views.users.added_point', point: @added_point.to_i).html_safe %></span>")
+    <% end %>
+
+    $('#correct_answer').html("<i class='fa fa-info'></i><span><%== @attr_user_answer.correct_answer_label %></span>");
+    $('#user_ansered').html("<i class='fa fa-info'></i> <span><%== @attr_user_answer.user_answered_label %></span>");
+    $('.question_poll_end').html("<%= j render partial: 'partials/progressbar_warp', locals: {question: @question} %>");
+    $('.open_stat').click();
+  <% elsif @user_answer %>
+    $('#correct_answer').html("<%= t('views.answers.no_answer') %>");
+    $('#user_ansered').html("<i class='fa fa-info'></i> <span><%== @attr_user_answer.user_answered_label %></span>");
+    $('.question_poll_end').html("<%= j render partial: 'partials/progressbar_warp', locals: {question: @question} %>");
+    $('.question_poll_end').show();
+    $(".open_stat").html('Ẩn thống kê <i class="fa fa-chevron-up"></i>');
+  <% end %>
 <% end %>
+$('#modal-answered').modal('show');

@@ -1,4 +1,5 @@
-class UsersAnswersController < ApplicationController  
+class UsersAnswersController < ApplicationController 
+  # before_action :authenticate!, only: [:new, :create, :edit, :update]
   def index
     # @q = Product.search(params[:q])
     # @products = @q.result.includes(:product_images).order(updated_at: :desc).page(params[:page]).per(12)
@@ -25,20 +26,30 @@ class UsersAnswersController < ApplicationController
   end
 
   def create
-    @question = Question.find(users_answer_params[:question_id])
-    # @user_answer = UsersAnswer.new(user_id: 1, question_id: users_answer_params[:question_id], answer: users_answer_params[:answer].join(', '))
-    @user_answer = UsersAnswer.new(user_id: 1, question_id: users_answer_params[:question_id], answer: users_answer_params[:answer])
-    correct_answer = @question.correct_answer
+    @user_answer = UsersAnswer.find_or_initialize_by(user_id: current_user.try(:id), question_id: users_answer_params[:question_id])
+    if @user_answer.new_record?
+      @question = Question.find(users_answer_params[:question_id])
+      # @user_answer = UsersAnswer.new(user_id: 1, question_id: users_answer_params[:question_id], answer: users_answer_params[:answer].join(', '))
+      @user_answer.answer = users_answer_params[:answer]
+      @correct_answer = @question.correct_answer
+      if @correct_answer.present?
+        @user_answer.correct = check_correct_answer(@correct_answer, @user_answer)
+      end
 
-    if correct_answer.present?
-      @user_answer.correct = check_correct_answer(correct_answer, @user_answer)
+      answer = Answer.find_by(id: users_answer_params[:answer])
+      set_attributes(@correct_answer, answer)
+    else
+      @already_answered = true
+      respond_to {|format| return format.js }
     end
-
-    answer = Answer.find_by(id: users_answer_params[:answer])
-    set_attributes(correct_answer, answer)
 
     respond_to do |format|
       if @user_answer.save
+        if current_user && @user_answer.correct && @question.remain_points.to_i > 0
+          @added_point = @question.remain_points
+          User.update_counters(current_user.id, points: @question.remain_points)
+          Question.update_counters(@question.id, remain_points: -1) if @question.remain_points.to_i > 0
+        end
         format.html {
           redirect_to @user_answer.question, notice: "Ban da tra loi #{@user_answer.correct ? 'Dung' : 'Sai'}" 
         }

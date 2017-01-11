@@ -37,6 +37,12 @@ $(document).on('turbolinks:load', function() {
     })
   });
 
+  $('#close-result-modal').on('click', function(){
+    $("#answer-result").html('');
+    $("#user_ansered").html('');
+    $("#correct_answer").html('');
+    $("#user-point").html('');
+  });
   function ChangeToSlug(selected, target_input)
   {
     var title, slug;

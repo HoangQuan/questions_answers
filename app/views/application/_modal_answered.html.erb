@@ -14,10 +14,13 @@
       
       <!--Body-->
       <div class="modal-body center">
-        <div class="btn btn-info" id="answer-result"></div>
+        <div id="answer-result"></div>
+        <div><h2 id="user-point"></span></h2></div>
+
+
         <div class="md-form">
-          <h4><i class="fa fa-info"></i><span id='user_ansered' ></span></h4>
-          <h4><i class="fa fa-info"></i><span id='correct_answer' ></span></h4>
+          <h4 id='user_ansered'></h4>
+          <h4 id='correct_answer'></h4>
         </div>
 
         <div class="question_poll_end">
@@ -27,11 +30,7 @@
       
       <!--Footer-->
       <div class="modal-footer">
-<!--         <div class="options">
-          <p>Not a member? <a href="#">Sign Up</a></p>
-          <p>Forgot <a href="#">Password?</a></p>
-        </div> -->
-        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('views.button.close')%></button>
+        <button type="button" class="btn btn-default" id='close-result-modal' data-dismiss="modal"><%= t('views.button.close')%></button>
       </div>
     </div>
     <!--/.Content-->

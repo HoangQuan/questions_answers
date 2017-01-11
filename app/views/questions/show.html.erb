@@ -51,7 +51,7 @@
             <span class="question-category"><a href="http://2code.info/demo/themes/ask-me/question-category/wordpress/"><i class="fa fa-folder-o"></i><%= "#{@question.category.name}"%> - <%= "#{@question.level.name}"  %></a></span>
             <span class="question-date" datetime="July 18, 2014"><i class="fa fa-calendar"></i>
             <%= distance_of_time_in_words_to_now(@question.updated_at)%> <%= t('views.common.ago')%></span>
-            <span class="question-comment"><a href="http://2code.info/demo/themes/ask-me/questions/ask-any-question-and-you-be-sure-find-your-answer-2/#comments"><i class="fa fa-comments-o"></i><%= @question.answers.count %></a></span>
+            <span class="question-comment"><a href="http://2code.info/demo/themes/ask-me/questions/ask-any-question-and-you-be-sure-find-your-answer-2/#comments"><i class="fa fa-comments-o"></i><%= @question.users_answers.count %></a></span>
             <meta itemprop="interactionCount" content="UserAnswers: 59">
             <span class="question-view"><i class="fa fa-eye"></i><%= @question.count_views %></span>
             <span class="badge-span" style="background-color: #000000"><%= t("views.answers.difficulty_level.#{@question.difficulty_level}") if @question.difficulty_level %></span><span class="single-question-vote-result question_vote_result"><%= @question.count_likes %></span>
@@ -137,12 +137,12 @@
         <!-- End share-tags -->
         <div class="about-author clearfix">
           <div class="author-image">
-            <a href="http://2code.info/demo/themes/ask-me/author/primegods/" original-title="primegods" class="tooltip-n">
-            <img alt="" src="http://2.gravatar.com/avatar/83fd0d89f0243bcb6b9de278321d86f0?s=65&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/83fd0d89f0243bcb6b9de278321d86f0?s=130&amp;d=mm&amp;r=g 2x" class="avatar avatar-65 photo" height="65" width="65">                   </a>
+            <a href="<%=user_path @question.user %>" original-title="<%= @question.user.name %>" class="tooltip-n">
+            <img alt="" src="<%= @question.user.avatar %>" srcset="<%= @question.user.avatar %>" class="avatar avatar-65 photo" height="65" width="65">                   </a>
           </div>
           <div class="author-bio">
             <h4>
-              About <a href="http://2code.info/demo/themes/ask-me/author/primegods/">primegods</a><span class="badge-span" style="background-color: #000000">Beginner</span>                      
+              <%= t('models.questions.create_user')%> <a href="<%=user_path @question.user %>"><%= @question.user.name%></a><span class="badge-span" style="background-color: #000000">Beginner</span>                      
             </h4>
             <div class="clearfix"></div>
           </div>

@@ -1,0 +1,24 @@
+<div id="login-widget-2" class="widget login-widget">
+  <h3 class="widget_title">Your's profile</h3>
+  <div class="widget_login">
+    <ul>
+      <li>
+        <div class="author-img">
+          <a href="<%= user_path(current_user)%>">
+          <img alt="<%= current_user.name %>" src="<%= current_user.avatar %>">                  </a>
+        </div>
+        <div class="author-content">
+          <h6><a href="<%= user_path(current_user)%>"><%= current_user.name %></a></h6>
+          <span class="badge-span" style="background-color: #dd9933"><%= current_user.type %></span><span class="comment"><%= current_user.points.to_i %> <%=t('models.users.points')%></span>
+        </div>
+        <div class="clearfix"></div>
+      </li>
+      <li><i class="fa fa-envelope"></i> <%= current_user.email %></li>
+      <li><i class="fa fa-archive"></i> <%= current_user.type || 'Beginer'%></li>
+      <li><i class="fa fa-bar-chart"></i> <%= current_user.level.try(:name) || '0' %></li>
+      <li><i class="fa fa-star"></i> <%= current_user.points.to_i %> <%=t('models.users.points')%></li>
+      <li><i class="fa fa-sign-out"></i> <%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+</div>

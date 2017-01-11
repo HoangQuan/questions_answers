@@ -85,6 +85,9 @@ ActiveRecord::Schema.define(version: 20161223045708) do
     t.string   "lon"
     t.string   "lat"
     t.string   "description"
+    t.datetime "birthday"
+    t.integer  "level_id"
+    t.string   "level_state"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["email", "name"], name: "index_users_on_email_and_name", unique: true, using: :btree

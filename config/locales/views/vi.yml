@@ -39,6 +39,10 @@ vi:
         hard: 'Khó'
         hardest: 'Nâng cao'
       answer_label: 'Nhãn của phương án: A, B, C, D'
+      already_answered_with_answer: "Bạn đã trả lời câu hỏi này với phương án: %{answer}"
+      already_answered: Bạn đã trả lời câu hỏi này rồi!
     questions:
       related_questions: 'Câu hỏi liên quan'
+    users:
+      added_point: "Bạn được cộng thêm <span class='btn btn-warning'>%{point}</span> điểm"
 
