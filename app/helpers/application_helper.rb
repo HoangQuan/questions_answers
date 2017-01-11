@@ -21,4 +21,9 @@ module ApplicationHelper
   def h_model(f, attribute)
     t("models.#{f.object.class.to_s.downcase.pluralize}.#{attribute.to_s}")
   end
+
+  def youtube_id url
+     regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/
+     url.match(regex)[1]
+  end
 end

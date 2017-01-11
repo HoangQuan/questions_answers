@@ -4,6 +4,7 @@ vi:
       title: Tiêu đề
       content: Nội dung
       image: Hình ảnh
+      video_url: Câu hỏi Video
       category_id: Lĩnh vực
       status: Trạng thái
       question_type: Loại câu hỏi

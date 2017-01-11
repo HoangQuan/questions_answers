@@ -22,6 +22,14 @@
                 <div class="color button small dark_button cancel">Cancel</div>
               </div>
               <!-- End reported -->
+
+              <% if @question.video_url.present? %>
+              <h3>Nội dung câu hỏi trong video</h3>
+              <div class="post-img video_embed post-img-9">
+                <iframe height="450" src="https://www.youtube.com/embed/<%= youtube_id(@question.video_url) %>"></iframe>
+              </div>
+              <%end%>
+
               <div class="question_poll_end" style="display: none">
                 <%= render partial: 'partials/progressbar_warp', locals: {question: @question} %>
               </div>

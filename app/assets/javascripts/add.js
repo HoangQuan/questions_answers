@@ -5,6 +5,13 @@ $(document).on('turbolinks:load', function() {
     $(this).closest("fieldset").hide(500);
     return event.preventDefault();
   });
+  (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.7&appId=1377753405796618";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 
   $("form").on("click", ".add_fields", function(event) {
     var regexp, time;
@@ -43,6 +50,23 @@ $(document).on('turbolinks:load', function() {
     $("#correct_answer").html('');
     $("#user-point").html('');
   });
+
+  $('.image_question').on('click', function(){
+    checked = $(this).is(":checked")
+    if (!checked) {
+
+    }
+    $('.fileinputs').toggle(500);
+  });
+
+  $('.video_question').on('click', function(){
+    checked = $(this).is(":checked")
+    if (!checked) {
+      $('.video_field').val(''); 
+    }
+    $('.video_field').toggle(500);
+  });
+
   function ChangeToSlug(selected, target_input)
   {
     var title, slug;

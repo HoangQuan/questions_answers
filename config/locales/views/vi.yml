@@ -2,6 +2,7 @@ vi:
   views:
     common:
       ago: trước
+      select_file: 'Chọn file'
     button:
       close: 'Đóng'
       cancel: 'Hủy'

@@ -23,12 +23,15 @@
                   <div class="question-author">
                     <a href="<%= user_path(question.user)%>" original-title="<%= question.user.name %>" class="question-author-img tooltip-n">
                     <span></span>
-                    <img alt="" src="<%= question.user.avatar %>" srcset="<%= question.user.avatar %>" class="avatar avatar-65 photo" height="65" width="65">         </a>
+                    <img alt="" src="<%= question.user.avatar %>" srcset="<%= question.user.avatar %>" class="avatar avatar-65 photo" height="65" width="65"></a>
                   </div>
                   <div class="question-inner">
                     <div class="clearfix"></div>
                     <div class="question-desc">
                       <%= question.content %>
+                      <div class="post-img video_embed post-img-9">
+                        <iframe height="450" src="http://www.youtube.com/embed/JuyB7NO0EYY"></iframe>
+                      </div>
                       <div class="explain-reported">
                         <h3><%= t('views.answers.report_reason')%></h3>
                         <textarea name="explain-reported"></textarea>

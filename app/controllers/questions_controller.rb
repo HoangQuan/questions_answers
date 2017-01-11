@@ -70,6 +70,6 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.require(:question).permit(:level_id, :category_id, :title, :difficulty_level, :content, :hint, answers_attributes: [:id, :correct, :question_id, :label, :content, :image, :_destroy])
+      params.require(:question).permit(:level_id, :video_url, :image, :category_id, :title, :difficulty_level, :content, :hint, answers_attributes: [:id, :correct, :question_id, :label, :content, :image, :_destroy])
     end
 end
