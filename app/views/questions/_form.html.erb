@@ -26,17 +26,17 @@
 
             <p>
               <label class=""><%= h_model(f, :video_url) %></label>
-              <input type="checkbox" name="" class="video_question" "<%=@question.video_url.present? ? 'checked' : ''%>" /> Đăng video mô tả cho câu hỏi
+              <input type="checkbox" class="video_question" <%=@question.video_url.present? ? 'checked' : ''%> /> Đăng video mô tả cho câu hỏi
               <br/>
               <%= f.text_field :video_url, class: 'the-title video_field', placeholder: 'Link youtube hoac facebook video', style: "display: #{@question.video_url.present? ? '' : 'none'};" %>
             </p>
 
             <p>
               <label class=""><%= h_model(f, :image) %></label>
-              <img src="<%= @question.image %>">
-              <input type="checkbox" name="" "<%=@question.image.present? ? 'checked' : ''%>" class="image_question" /> Đăng ảnh mô tả cho câu hỏi
-              <span class="fileinputs" style="display: <%= @question.image ? '' : 'none'%>">
+              <input type="checkbox" class="image_question" <%= @question.image_url.present? ? 'checked' : ''%> /> Đăng ảnh mô tả cho câu hỏi
+              <span class="fileinputs" style="display: <%= @question.image_url.present? ? '' : 'none'%>">
                 <%= render partial: 'attachment_field', locals: {f: f} %>
+                <img src="<%= @question.image_url(:simple) %>">
               </span>
             </p>
 

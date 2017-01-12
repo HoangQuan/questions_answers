@@ -54,7 +54,9 @@ $(document).on('turbolinks:load', function() {
   $('.image_question').on('click', function(){
     checked = $(this).is(":checked")
     if (!checked) {
-
+      $('#remove_image').val(1);
+    } else {
+      $('#remove_image').val(0);
     }
     $('.fileinputs').toggle(500);
   });

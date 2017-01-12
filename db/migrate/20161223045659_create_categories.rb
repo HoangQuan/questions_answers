@@ -3,7 +3,7 @@ class CreateCategories < ActiveRecord::Migration[5.0]
     create_table :categories do |t|
       t.string :name
       t.string :description
-      t.string :image_url
+      t.string :image_original_url
       t.string :image
       t.string :slug
       t.timestamps

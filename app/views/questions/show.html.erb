@@ -24,12 +24,19 @@
               <!-- End reported -->
 
               <% if @question.video_url.present? %>
-              <h3>Nội dung câu hỏi trong video</h3>
+                <h3>Nội dung câu hỏi trong video</h3>
               <div class="post-img video_embed post-img-9">
                 <iframe height="450" src="https://www.youtube.com/embed/<%= youtube_id(@question.video_url) %>"></iframe>
               </div>
               <%end%>
 
+              <% if @question.image_url %>
+                <h3>Nội dung câu hỏi trong ảnh</h3>
+                <div>
+                  <img src="<%= @question.image_url %>" title="<%= @question.title%>" alt="<%= @question.title%>">
+                </div>
+                <br />
+              <% end %>
               <div class="question_poll_end" style="display: none">
                 <%= render partial: 'partials/progressbar_warp', locals: {question: @question} %>
               </div>

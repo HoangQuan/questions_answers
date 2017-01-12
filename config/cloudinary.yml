@@ -1,0 +1,22 @@
+development:
+  cloud_name: "hoang-quan"
+  api_key: "861462464157243"
+  api_secret: "K3XPXMKruAuunk-Aiyqb2idhKhs"
+production:
+  cloud_name: "hoang-quan"
+  api_key: "861462464157243"
+  api_secret: "K3XPXMKruAuunk-Aiyqb2idhKhs"
+  # enhance_image_tag: true
+  # static_image_support: false
+# production:
+#   cloud_name: my_cloud_name
+#   api_key: my_api_key
+#   api_secret: my_api_secret
+#   enhance_image_tag: true
+#   static_image_support: true
+# test:
+#   cloud_name: my_cloud_name
+#   api_key: my_api_key
+#   api_secret: my_api_secret
+#   enhance_image_tag: true
+#   static_image_support: false

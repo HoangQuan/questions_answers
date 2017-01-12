@@ -6,7 +6,7 @@ class CreateAnswers < ActiveRecord::Migration[5.0]
       t.string :label
       t.string :content
       t.boolean :correct
-      t.string :image_url
+      t.string :image_original_url
       t.string :image
 
       t.timestamps

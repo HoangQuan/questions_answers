@@ -11,7 +11,7 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
       t.string :slug
       t.integer :points, default: 0
       t.integer :remain_points, default: 0
-      t.string :image_url
+      t.string :image_original_url
       t.string :image
       t.string :video_url # facebook and youtube
       t.string :difficulty_level # De, Trung binh, Kho

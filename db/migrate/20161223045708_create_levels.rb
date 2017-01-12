@@ -3,7 +3,7 @@ class CreateLevels < ActiveRecord::Migration[5.0]
     create_table :levels do |t|
       t.string :name
       t.string :slug
-      t.string :image_url
+      t.string :image_original_url
       t.string :image
       t.timestamps
     end
