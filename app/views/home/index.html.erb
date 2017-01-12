@@ -29,9 +29,19 @@
                     <div class="clearfix"></div>
                     <div class="question-desc">
                       <%= question.content %>
+                      <br />
+                      <% if question.video_url.present? %>
                       <div class="post-img video_embed post-img-9">
-                        <iframe height="450" src="http://www.youtube.com/embed/JuyB7NO0EYY"></iframe>
+                        <iframe height="450" src="https://www.youtube.com/embed/<%= youtube_id(question.video_url) %>"></iframe>
                       </div>
+                      <%end%>
+
+                      <% if question.image_url %>
+                        <div>
+                          <img src="<%= question.image_url %>" title="<%= question.title%>" alt="<%= question.title%>">
+                        </div>
+                        <br />
+                      <% end %>
                       <div class="explain-reported">
                         <h3><%= t('views.answers.report_reason')%></h3>
                         <textarea name="explain-reported"></textarea>
