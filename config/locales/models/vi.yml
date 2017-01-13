@@ -25,10 +25,18 @@ vi:
       slug: Tiêu đề trên link
       image: Ảnh
     users:
-      name: Tiêu đề
+      name: Tên
       type: Loại người dùng
       avatar: Avatar
       email: Email
+      points: Điểm
+      phone_number: Số điện thoại
+      address: Địa chỉ
+      hobby: Sở thích
+      description: Mô mả
+      birthday: Ngày sinh
+      level_id: Trình độ
+      level_state: Học lực
   activemodel:
     errors:
   activerecord:

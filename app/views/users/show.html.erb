@@ -1,0 +1,96 @@
+<%= render 'partials/breadcrumbs'%>
+<section class="container main-content page-right-sidebar">
+  <div class="row">
+    <div class="with-sidebar-container">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="user-profile">
+            <div class="col-md-12">
+              <div class="page-content">
+                <h2>
+                  <a href="<%= user_path(@user.uid)%>">quan</a>
+                  <span class="badge-span" style="background-color: #000000">Beginner</span> 
+                </h2>
+                <div class="user-profile-img">
+                  <a original-title="quan" class="tooltip-n" href="http://2code.info/demo/themes/ask-me/author/quan/">
+                  <img alt="" src="http://2.gravatar.com/avatar/bb2e25714e426c215172bda586e8ffa2?s=65&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/bb2e25714e426c215172bda586e8ffa2?s=130&amp;d=mm&amp;r=g 2x" class="avatar avatar-65 photo" height="65" width="65"> </a>
+                </div>
+                <div class="ul_list ul_list-icon-ok about-user">
+                  <ul>
+                    <li><i class="icon-plus"></i><%= t('models.users.created_at')%> : <span><%= @user.created_at %></span></li>
+                    <li><i class="icon-phone"></i><%= t('models.users.phone_number')%> : <span><%= @user.phone_number %></span></li>
+                    <li><i class="icon-mail"></i><%= t('models.users.email')%> : <span><%= @user.email %></span></li>
+                    <li><i class="icon-heart"></i><%= t('models.users.birthday')%> : <span><%= @user.birthday %></span></li>
+                    <li><i class="icon-user"></i><%= t('models.users.points')%> : <span><%= @user.points %></span></li>
+                    <li><i class="icon-user"></i><%= t('models.users.level_id')%> : <span><%= @user.level.try(:name) %></span></li>
+                    <li><i class="icon-user"></i><%= t('models.users.level_state')%> : <span><%= @user.level_state %></span></li>
+                    <li><i class="icon-user"></i><%= t('models.users.hobby')%> : <span><%= @user.hobby %></span></li>
+                  </ul>
+                </div>
+                <div class="clearfix"></div>
+                <p></p>
+                <div class="clearfix"></div>
+                <a class="button color small margin_0" href="http://2code.info/demo/themes/ask-me/edit-profile/?u=823&amp;">Edit profile</a>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="page-content page-content-user-profile">
+                <div class="user-profile-widget">
+                  <h2>User Stats</h2>
+                  <div class="ul_list ul_list-icon-ok">
+                    <ul>
+                      <li><i class="icon-question-sign"></i><a href="http://2code.info/demo/themes/ask-me/user-questions/?u=823"><%= t('views.users.questions')%><span> ( <span><%= @user.questions.count %></span> ) </span></a></li>
+                      <li><i class="icon-comment"></i><a href="http://2code.info/demo/themes/ask-me/user-answer/?u=823"><%= t('views.users.answered')%><span> ( <span><%= @user.users_answers.count %></span> ) </span></a></li>
+                      <li><i class="icon-star"></i><a href="http://2code.info/demo/themes/ask-me/user-favorite-questions/?u=823">Favorite Questions<span> ( <span>0</span> ) </span></a></li>
+                      <li><i class="icon-heart"></i><a href="http://2code.info/demo/themes/ask-me/user-points/?u=823"><%= t('views.users.points')%><span> ( <span><%= @user.points.to_i %></span> ) </span></a></li>
+                      <li><i class="icon-file-alt"></i><a href="http://2code.info/demo/themes/ask-me/user-posts/?u=823">Posts<span> ( <span>0</span> ) </span></a></li>
+                      <li><i class="icon-asterisk"></i><%= t('views.users.best_answers')%><span> ( <span><%= @user.users_answers_correct.count %></span> ) </span></li>
+                      <li class="authors_follow"><i class="icon-user-md"></i><a href="http://2code.info/demo/themes/ask-me/authors-i-follow/?u=823">Authors I Follow<span> ( <span>0</span> ) </span></a></li>
+                      <li class="followers"><i class="icon-user"></i><a href="http://2code.info/demo/themes/ask-me/followers/?u=823">Followers<span> ( <span>0</span> ) </span></a></li>
+                      <li class="follow_questions"><i class="icon-question-sign"></i><a href="http://2code.info/demo/themes/ask-me/follow-question/?u=823">Follow questions<span> ( <span>0</span> ) </span></a></li>
+                      <li class="follow_answers"><i class="icon-comment"></i><a href="http://2code.info/demo/themes/ask-me/follow-answer/?u=823">Follow answers<span> ( <span>0</span> ) </span></a></li>
+                      <li class="follow_posts"><i class="icon-file-alt"></i><a href="http://2code.info/demo/themes/ask-me/follow-posts/?u=823">Follow posts<span> ( <span>0</span> ) </span></a></li>
+                      <li class="follow_comments"><i class="icon-comments"></i><a href="http://2code.info/demo/themes/ask-me/follow-comments/?u=823">Follow comments<span> ( <span>0</span> ) </span></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="page-content">
+          <div class="user-stats">
+            <div class="user-stats-head">
+              <div class="block-stats-1 stats-head">#</div>
+              <div class="block-stats-2 stats-head">Today</div>
+              <div class="block-stats-3 stats-head">Month</div>
+              <div class="block-stats-4 stats-head">Total</div>
+            </div>
+            <div class="user-stats-item">
+              <div class="block-stats-1">Questions</div>
+              <div class="block-stats-2">0</div>
+              <div class="block-stats-3">0</div>
+              <div class="block-stats-4">0</div>
+            </div>
+            <div class="user-stats-item">
+              <div class="block-stats-1">Answers</div>
+              <div class="block-stats-2">0</div>
+              <div class="block-stats-3">0</div>
+              <div class="block-stats-4">0</div>
+            </div>
+            <div class="user-stats-item user-stats-item-last">
+              <div class="block-stats-1">Visitors</div>
+              <div class="block-stats-2">0</div>
+              <div class="block-stats-3">4</div>
+              <div class="block-stats-4">4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= render 'partials/sidebar'%>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</section>

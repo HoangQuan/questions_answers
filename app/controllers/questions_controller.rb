@@ -31,9 +31,10 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user_id = @question.updated_user_id = current_user.id
+    @question.slug = chang_to_slug(@question.title)
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'question was successfully created.' }
+        format.html { redirect_to question_path(@question.slug), notice: 'question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
@@ -44,10 +45,10 @@ class QuestionsController < ApplicationController
   def update
     @question.attributes = question_params
     @question.updated_user_id = current_user.id
-
+    @question.slug = chang_to_slug(@question.title)
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'question was successfully updated.' }
+        format.html { redirect_to question_path(@question.slug), notice: 'question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit }
@@ -66,7 +67,7 @@ class QuestionsController < ApplicationController
 
   private
     def set_question
-      @question = Question.find(params[:id])
+      @question = Question.friendly.find(params[:id])
     end
 
     def question_params

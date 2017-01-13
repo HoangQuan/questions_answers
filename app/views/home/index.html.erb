@@ -16,12 +16,12 @@
                 <% Question.all.each do |question| %>
                 <article class="question question-type-poll question_author_yes post-266 type-question status-publish hentry question-category-wordpress question_tags-themes" id="post-266" role="article" itemtype="http://schema.org/Article">
                   <h2 itemprop="name">
-                    <a itemprop="url" href="<%= question_path(question) %>" title="<%= question.title %>" rel="bookmark"><%= question.title %></a>
+                    <a itemprop="url" href="<%= question_path(question.slug) %>" title="<%= question.title %>" rel="bookmark"><%= question.title %></a>
                   </h2>
                   <a class="question-report report_q" href="#"><%= t('views.button.report')%></a>
                   <div class="question-type-main"><i class="icon-signal"></i>Poll</div>
                   <div class="question-author">
-                    <a href="<%= user_path(question.user)%>" original-title="<%= question.user.name %>" class="question-author-img tooltip-n">
+                    <a href="<%= user_path(question.user.uid)%>" original-title="<%= question.user.name %>" class="question-author-img tooltip-n">
                     <span></span>
                     <img alt="" src="<%= question.user.avatar %>" srcset="<%= question.user.avatar %>" class="avatar avatar-65 photo" height="65" width="65"></a>
                   </div>

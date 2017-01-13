@@ -152,12 +152,12 @@
         <!-- End share-tags -->
         <div class="about-author clearfix">
           <div class="author-image">
-            <a href="<%=user_path @question.user %>" original-title="<%= @question.user.name %>" class="tooltip-n">
+            <a href="<%=user_path @question.user.uid %>" original-title="<%= @question.user.name %>" class="tooltip-n">
             <img alt="" src="<%= @question.user.avatar %>" srcset="<%= @question.user.avatar %>" class="avatar avatar-65 photo" height="65" width="65">                   </a>
           </div>
           <div class="author-bio">
             <h4>
-              <%= t('models.questions.create_user')%> <a href="<%=user_path @question.user %>"><%= @question.user.name%></a><span class="badge-span" style="background-color: #000000">Beginner</span>                      
+              <%= t('models.questions.create_user')%> <a href="<%=user_path @question.user.uid %>"><%= @question.user.name%></a><span class="badge-span" style="background-color: #000000">Beginner</span>                      
             </h4>
             <div class="clearfix"></div>
           </div>

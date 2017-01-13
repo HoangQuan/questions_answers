@@ -46,4 +46,7 @@ vi:
       related_questions: 'Câu hỏi liên quan'
     users:
       added_point: "Bạn được cộng thêm <span class='btn btn-warning'>%{point}</span> điểm"
-
+      answered: Đã trả lời
+      questions: Đã hỏi
+      points: Số điểm
+      best_answers: Trả lời đúng
