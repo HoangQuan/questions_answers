@@ -13,10 +13,10 @@
             </ul>
             <div class="tab-inner-warp" style="display: block;">
               <div class="tab-inner">
-                <% Question.all.each do |question| %>
+                <% @questions.each do |question| %>
                 <article class="question question-type-poll question_author_yes post-266 type-question status-publish hentry question-category-wordpress question_tags-themes" id="post-266" role="article" itemtype="http://schema.org/Article">
                   <h2 itemprop="name">
-                    <a itemprop="url" href="<%= question_path(question.slug) %>" title="<%= question.title %>" rel="bookmark"><%= question.title %></a>
+                    <a itemprop="url" href="<%= question_path(question.slug || question) %>" title="<%= question.title %>" rel="bookmark"><%= question.title %></a>
                   </h2>
                   <a class="question-report report_q" href="#"><%= t('views.button.report')%></a>
                   <div class="question-type-main"><i class="icon-signal"></i>Poll</div>
