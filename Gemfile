@@ -54,3 +54,9 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'friendly_id', '~> 5.1.0'
 gem 'koala'
+
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor'
+  gem 'rails_serve_static_assets'
+end
