@@ -48,7 +48,17 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: questions_answers_production
-  username: questions_answers
-  password: <%= ENV['QUESTIONS_ANSWERS_DATABASE_PASSWORD'] %>
+  # <<: *default
+  # database: questions_answers_production
+  # username: questions_answers
+  # password: <%= ENV['QUESTIONS_ANSWERS_DATABASE_PASSWORD'] %>
+  # production:
+ adapter: postgresql
+ encoding: unicode
+ reconnect: false
+ database: d8n5odvr0ngl0l
+ pool: 5
+ username: skpybskrxpwcei
+ port: 5432
+ host: ec2-23-21-238-246.compute-1.amazonaws.com
+ password: "dc7c04656543409d465d110039a5b8d65b1bcecd8f590faf491a5d4e2eb39d6c"
