@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/circleci/minitest-ci.git
+  revision: bd608f37e663c6e314a1590e04b560242bed0607
+  specs:
+    minitest-ci (3.1.0)
+      minitest (>= 5.0.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -53,6 +60,8 @@ GEM
     cloudinary (1.2.3)
       aws_cf_signer
       rest-client
+    codeclimate-test-reporter (1.0.7)
+      simplecov
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -67,6 +76,7 @@ GEM
       deep_merge (~> 1.1.1)
     debug_inspector (0.0.2)
     deep_merge (1.1.1)
+    docile (1.1.5)
     domain_name (0.5.20160826)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
@@ -194,6 +204,11 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    simplecov (0.13.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     slop (3.6.0)
     spring (2.0.0)
       activesupport (>= 4.2)
@@ -237,6 +252,7 @@ DEPENDENCIES
   byebug
   carrierwave
   cloudinary
+  codeclimate-test-reporter
   coffee-rails (~> 4.2)
   config
   friendly_id (~> 5.1.0)
@@ -244,6 +260,7 @@ DEPENDENCIES
   jquery-rails
   koala
   listen (~> 3.0.5)
+  minitest-ci!
   mysql2 (>= 0.3.18, < 0.5)
   omniauth-facebook
   pg (= 0.18)
