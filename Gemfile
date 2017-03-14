@@ -35,6 +35,9 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem 'rubocop', require: false
+
+  gem 'codeclimate-test-reporter', require: nil
+  gem 'minitest-ci', git: 'https://github.com/circleci/minitest-ci.git', require: nil
 end
 
 group :development do
